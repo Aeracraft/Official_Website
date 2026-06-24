@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const appConfig = useAppConfig()
 
 useSeoMeta({
-  title: () => `${useAppConfig().site.name} - Minecraft Server`,
+  title: `${appConfig.site.name} - Minecraft Server`,
   description: () => t('hero.desc')
 })
 
@@ -13,7 +14,6 @@ const { servers, anyOnline } = useServerStatus()
 const colorMode = useColorMode()
 const toast = useToast()
 const copied = ref(false)
-const appConfig = useAppConfig()
 const primaryHost = computed(() => servers.value[0]?.host ?? '')
 
 function toggleTheme() {
