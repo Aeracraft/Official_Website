@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const mcColors = [
   { code: '0', name: 'Black', hex: '#000000', text: 'fff' },
   { code: '1', name: 'Dark Blue', hex: '#0000AA', text: 'fff' },

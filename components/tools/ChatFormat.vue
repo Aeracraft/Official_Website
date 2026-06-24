@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const input = ref('')
 const copied = ref(false)
 

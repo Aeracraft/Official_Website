@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const host = ref('play.aeracraft.cn')
 const port = ref(25565)
 const loading = ref(false)

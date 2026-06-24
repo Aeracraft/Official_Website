@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { t } = useI18n()
 const playerName = ref('')
 const uuid = ref('')
 const loading = ref(false)
