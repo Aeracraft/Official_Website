@@ -6,7 +6,13 @@
     "gamemodes": "Game Modes",
     "rules": "Rules",
     "join": "Join Server",
-    "top": "Back to top"
+    "top": "Back to top",
+    "docs": "Docs",
+    "tools": "Tools",
+    "docs_join": "Join Guide",
+    "docs_gamemodes": "Game Modes",
+    "docs_faq": "FAQ",
+    "docs_changelog": "Changelog"
   },
   "hero": {
     "badge": "Server Online",
@@ -75,5 +81,205 @@
   "footer": {
     "copyright": "All rights reserved.",
     "disclaimer": "Not affiliated with Mojang AB"
+  },
+  "docs": {
+    "title": "Documentation",
+    "desc": "Everything you need to know about playing on Aeracraft.",
+    "join": {
+      "step1_title": "Step 1: Download Minecraft",
+      "step1_1": "Download and install Minecraft Java Edition from minecraft.net",
+      "step1_2": "Make sure you have a valid Minecraft account",
+      "step1_3": "Launch the game and select the latest release version",
+      "step1_tip": "We recommend using the official launcher. Third-party launchers may have compatibility issues.",
+      "step2_title": "Step 2: Add Our Server",
+      "step2_1": "Click 'Multiplayer' from the main menu",
+      "step2_2": "Click 'Add Server' and enter the server address",
+      "step2_3": "Click 'Done' and select the server to join",
+      "step3_title": "Step 3: Start Playing",
+      "step3_item1": "Choose a game mode from the server selector",
+      "step3_item2": "Read the rules with /rules in chat",
+      "step3_item3": "Get starter kit with /kit starter",
+      "step3_item4": "Ask staff for help if you need anything!"
+    },
+    "gamemodes": {
+      "survival_title": "Survival Mode",
+      "survival_desc": "Classic survival gameplay with an active economy, land protection via Residence plugin, and quest system. Earn money by trading, completing quests, and mining.",
+      "smp_title": "Multiplayer Survival",
+      "smp_desc": "A shared survival world where you can build, explore, and collaborate with other players. Perfect for those who enjoy a community-driven survival experience.",
+      "residence_title": "Residence (Land Protection)",
+      "residence_desc": "Residence is our land protection plugin. It allows you to claim a area of land and protect it from other players. No extra mods needed — just use in-game commands.",
+      "residence_cmd1": "— Create a new residence",
+      "residence_cmd2": "— Select an area with a wooden axe",
+      "residence_cmd3": "— Set the owner of a residence area",
+      "residence_cmd4": "— Remove a residence",
+      "residence_cmd5": "— View residence information",
+      "tag_economy": "Economy",
+      "tag_land": "Land Claims",
+      "tag_quests": "Quests",
+      "tag_multiplayer": "Multiplayer",
+      "tag_building": "Building"
+    },
+    "faq": {
+      "items": [
+        { "q": "What version of Minecraft do I need?", "a": "We support the latest stable release of Minecraft Java Edition. Check our Discord for version-specific announcements." },
+        { "q": "Do I need to install any mods?", "a": "No mods required! Our server uses server-side plugins only. Just connect with a vanilla Minecraft client." },
+        { "q": "How do I protect my build?", "a": "Use the Residence plugin to claim land. Type /res select with a wooden axe to select corners, then /res create <name> to claim." },
+        { "q": "How do I get money?", "a": "You can earn money by selling items, completing quests, mining, or trading with other players. Use /bal to check your balance." },
+        { "q": "I was griefed! What do I do?", "a": "Contact a staff member immediately with evidence (screenshots). We take griefing very seriously and will help restore your build." },
+        { "q": "Can I play with friends on different accounts?", "a": "Yes! As long as each player has a legitimate Minecraft Java Edition account, they can join and play together." },
+        { "q": "How do I report a bug or cheater?", "a": "Use /report <player> <reason> in-game, or create a ticket on our Discord server with as much detail as possible." },
+        { "q": "Is there a donation system?", "a": "Yes, we have a rank system with perks. Check our Discord store for available ranks and benefits." }
+      ]
+    },
+    "changelog": {
+      "items": [
+        {
+          "version": "v1.2.0",
+          "date": "2026-06-20",
+          "title": "Summer Update",
+          "changes": [
+            { "type": "add", "text": "Added new SkyBlock challenges and rewards" },
+            { "type": "add", "text": "New Residence flags for finer land control" },
+            { "type": "fix", "text": "Fixed economy balance display on join" },
+            { "type": "improve", "text": "Improved server performance with optimized chunk loading" }
+          ]
+        },
+        {
+          "version": "v1.1.0",
+          "date": "2026-05-15",
+          "title": "Community Update",
+          "changes": [
+            { "type": "add", "text": "New /warp system for quick travel" },
+            { "type": "add", "text": "Added weekly event calendar" },
+            { "type": "fix", "text": "Fixed /tpa timeout not working correctly" },
+            { "type": "improve", "text": "Updated anti-cheat to reduce false positives" }
+          ]
+        },
+        {
+          "version": "v1.0.0",
+          "date": "2026-04-01",
+          "title": "Initial Launch",
+          "changes": [
+            { "type": "add", "text": "Survival and SMP servers launched" },
+            { "type": "add", "text": "Residence land protection enabled" },
+            { "type": "add", "text": "Economy system with shops and trading" },
+            { "type": "add", "text": "Anti-cheat protection active" }
+          ]
+        }
+      ]
+    }
+  },
+  "tools": {
+    "title": "Tools",
+    "desc": "Useful tools for Minecraft players and server administrators.",
+    "color": {
+      "title": "Minecraft Color Code Generator",
+      "input": "Input Text",
+      "colors": "Color Codes",
+      "formats": "Formatting Codes",
+      "preview": "Preview",
+      "copy": "Copy"
+    },
+    "chat": {
+      "title": "Chat Text Formatter",
+      "desc": "Create formatted chat messages with color codes. Use & followed by a color code (0-f) or format code (l, n, o, etc.).",
+      "input": "Input Text",
+      "preview": "Preview",
+      "output": "Formatted Output (for console/commands)",
+      "copy": "Copy"
+    },
+    "ip": {
+      "title": "Server IP Checker",
+      "check": "Check",
+      "players": "Players",
+      "max": "Max",
+      "version": "Version",
+      "ping": "Ping",
+      "sample": "Online Players"
+    },
+    "uuid": {
+      "title": "UUID Lookup",
+      "lookup": "Lookup",
+      "uuid": "UUID (Formatted)",
+      "no_dash": "UUID (No Dashes)"
+    },
+    "coords": {
+      "title": "Coordinate Converter",
+      "desc": "Convert coordinates between Overworld and Nether. The Nether is 8x smaller than the Overworld.",
+      "overworld": "Overworld",
+      "nether": "Nether",
+      "to_nether": "Convert to Nether",
+      "to_overworld": "Convert to Overworld",
+      "clear": "Clear All",
+      "tip": "In Minecraft, 1 block in the Nether = 8 blocks in the Overworld. Always build Nether portals at matching coordinates!"
+    },
+    "commands": {
+      "title": "Server Commands Reference",
+      "desc": "Common commands available on Aeracraft. Click any command to copy it.",
+      "search": "Search commands...",
+      "general": "General",
+      "teleport": "Teleportation",
+      "protection": "Land Protection",
+      "cmd_help": "Show help menu",
+      "cmd_spawn": "Teleport to spawn",
+      "cmd_home": "Teleport to your home",
+      "cmd_sethome": "Set your home location",
+      "cmd_back": "Teleport to last location",
+      "cmd_tpa": "Send teleport request",
+      "cmd_tpaccept": "Accept teleport request",
+      "cmd_tpdeny": "Deny teleport request",
+      "cmd_msg": "Send private message",
+      "cmd_r": "Reply to last message",
+      "cmd_pay": "Send money to a player",
+      "cmd_bal": "Check your balance",
+      "cmd_tp": "Teleport to a player",
+      "cmd_tpall": "Teleport all players to you",
+      "cmd_back2": "Return to previous location",
+      "cmd_warp": "Teleport to a warp point",
+      "cmd_warps": "List all warp points",
+      "cmd_res_create": "Create a new residence",
+      "cmd_res_select": "Select an area (use wooden axe)",
+      "cmd_res_info": "View residence info",
+      "cmd_res_addplayer": "Add player to residence",
+      "cmd_res_remove": "Remove a residence",
+      "tip": "Commands are not case-sensitive. You can also use tab completion by pressing Tab after typing part of a command."
+    },
+    "residence": {
+      "title": "Residence Plugin Guide",
+      "desc": "Residence is a land protection plugin. Claim your land, set permissions, and protect your builds — no mods needed.",
+      "what_title": "What is Residence?",
+      "create_title": "How to Create",
+      "manage_title": "Management",
+      "flags_title": "Flags & Permissions",
+      "tips_title": "Tips & Tricks",
+      "what_p1": "Residence lets you claim a rectangular area of land and control who can do what inside it. It's the primary way to protect your builds on Aeracraft.",
+      "what_f1": "Claim rectangular land areas",
+      "what_f2": "Control build, use, pvp, and more per area",
+      "what_f3": "Add trusted players to your residence",
+      "what_f4": "No client mods required — all server-side",
+      "create_s1": "Select the area with a wooden axe",
+      "create_s2": "Left-click one corner, right-click the opposite corner",
+      "create_s2_desc": "This creates a selection. You'll see a confirmation message in chat.",
+      "create_s3": "Create the residence",
+      "manage_add": "Add a player to your residence",
+      "manage_remove": "Remove a player from your residence",
+      "manage_rename": "Rename your residence",
+      "manage_delete": "Permanently delete a residence",
+      "flags_desc": "Flags control what players can do in a residence. Set them with /res set <residence> <flag> <true|false>",
+      "flag_build": "Allow/deny building",
+      "flag_use": "Allow/deny using items (doors, buttons, etc.)",
+      "flag_pvp": "Allow/deny player vs player combat",
+      "flag_chest": "Allow/deny opening chests",
+      "flag_destroy": "Allow/deny breaking blocks",
+      "flag_flow": "Allow/deny water/lava flow",
+      "flag_fire": "Allow/deny fire spread",
+      "flag_tnt": "Allow/deny TNT explosions",
+      "flag_example": "Example: Disable PvP in your residence:",
+      "tip1": "Your first residence is free! Additional residences may cost in-game money.",
+      "tip2": "Use a golden shovel for faster selection — it works like the wooden axe but is faster.",
+      "tip3": "You can create sub-areas within your residence for different permission levels.",
+      "tip4": "Check /res info to see all flags and players in a residence.",
+      "tip5": "Residences cannot overlap with other players' claims."
+    }
   }
 }

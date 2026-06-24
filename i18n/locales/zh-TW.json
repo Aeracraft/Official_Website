@@ -6,7 +6,13 @@
     "gamemodes": "遊戲模式",
     "rules": "伺服器規則",
     "join": "加入伺服器",
-    "top": "回到頂部"
+    "top": "回到頂部",
+    "docs": "文件",
+    "tools": "工具",
+    "docs_join": "加入指南",
+    "docs_gamemodes": "遊戲模式",
+    "docs_faq": "常見問題",
+    "docs_changelog": "更新日誌"
   },
   "hero": {
     "badge": "伺服器在線",
@@ -75,5 +81,205 @@
   "footer": {
     "copyright": "版權所有。",
     "disclaimer": "與 Mojang AB 無關"
+  },
+  "docs": {
+    "title": "文件中心",
+    "desc": "關於在 Aeracraft 遊戲的一切資訊。",
+    "join": {
+      "step1_title": "第一步：下載 Minecraft",
+      "step1_1": "從 minecraft.net 下載並安裝 Minecraft Java 版",
+      "step1_2": "確保你擁有有效的 Minecraft 帳號",
+      "step1_3": "啟動遊戲，選擇最新正式版",
+      "step1_tip": "推薦使用官方啟動器，第三方啟動器可能存在相容性問題。",
+      "step2_title": "第二步：新增伺服器",
+      "step2_1": "從主選單點擊「多人遊戲」",
+      "step2_2": "點擊「新增伺服器」，輸入伺服器位址",
+      "step2_3": "點擊「完成」，選擇伺服器加入",
+      "step3_title": "第三步：開始遊戲",
+      "step3_item1": "從伺服器選擇器選擇遊戲模式",
+      "step3_item2": "輸入 /rules 檢視伺服器規則",
+      "step3_item3": "輸入 /kit starter 取得新手禮包",
+      "step3_item4": "遇到問題隨時聯繫在線管理員！"
+    },
+    "gamemodes": {
+      "survival_title": "生存模式",
+      "survival_desc": "經典生存玩法，含活躍經濟系統、Residence 領地保護和任務系統。透過交易、完成任務和挖礦賺取金錢。",
+      "smp_title": "多人生存",
+      "smp_desc": "共享生存世界，你可以與其他玩家一起建造、探索和協作。適合喜歡社群驅動生存體驗的玩家。",
+      "residence_title": "Residence（領地保護）",
+      "residence_desc": "Residence 是我們的領地保護外掛，允許你圈占一片區域並保護它不被其他玩家破壞。無需安裝任何客戶端 Mod，直接使用遊戲內指令即可。",
+      "residence_cmd1": "— 建立新領地",
+      "residence_cmd2": "— 使用木斧選擇區域",
+      "residence_cmd3": "— 設定領地區域所有者",
+      "residence_cmd4": "— 刪除領地",
+      "residence_cmd5": "— 檢視領地資訊",
+      "tag_economy": "經濟系統",
+      "tag_land": "領地保護",
+      "tag_quests": "任務系統",
+      "tag_multiplayer": "多人遊戲",
+      "tag_building": "建造"
+    },
+    "faq": {
+      "items": [
+        { "q": "需要什麼版本的 Minecraft？", "a": "我們支援 Minecraft Java 版最新穩定版。版本相關公告請關注 Discord。" },
+        { "q": "需要安裝 Mod 嗎？", "a": "不需要！我們只使用伺服器端外掛，原版客戶端即可連線。" },
+        { "q": "如何保護我的建築？", "a": "使用 Residence 外掛圈地。用木斧 /res select 選擇兩個對角，然後 /res create <名稱> 建立領地。" },
+        { "q": "怎麼賺錢？", "a": "可以透過出售物品、完成任務、挖礦或與其他玩家交易來賺錢。輸入 /bal 檢視餘額。" },
+        { "q": "被惡意破壞了怎麼辦？", "a": "立即聯繫在線管理員並提供截圖證據，我們會嚴肅處理並幫助恢復你的建築。" },
+        { "q": "可以和朋友一起玩嗎？", "a": "當然可以！只要每位玩家擁有正版 Minecraft Java 版帳號即可加入。" },
+        { "q": "如何檢舉 Bug 或作弊者？", "a": "遊戲內輸入 /report <玩家> <原因>，或在 Discord 建立工單並提供詳細資訊。" },
+        { "q": "有捐贈系統嗎？", "a": "有，我們有帶特權的段位系統。請在 Discord 商店查看可用段位和福利。" }
+      ]
+    },
+    "changelog": {
+      "items": [
+        {
+          "version": "v1.2.0",
+          "date": "2026-06-20",
+          "title": "夏季更新",
+          "changes": [
+            { "type": "add", "text": "新增空島挑戰任務與獎勵" },
+            { "type": "add", "text": "Residence 新增更多權限標誌" },
+            { "type": "fix", "text": "修復加入伺服器時餘額顯示問題" },
+            { "type": "improve", "text": "優化區塊載入提升伺服器效能" }
+          ]
+        },
+        {
+          "version": "v1.1.0",
+          "date": "2026-05-15",
+          "title": "社群更新",
+          "changes": [
+            { "type": "add", "text": "新增 /warp 快速傳送系統" },
+            { "type": "add", "text": "新增每週活動日曆" },
+            { "type": "fix", "text": "修復 /tpa 超時功能異常" },
+            { "type": "improve", "text": "更新反作弊系統減少誤判" }
+          ]
+        },
+        {
+          "version": "v1.0.0",
+          "date": "2026-04-01",
+          "title": "初始上線",
+          "changes": [
+            { "type": "add", "text": "生存與多人生存伺服器上線" },
+            { "type": "add", "text": "Residence 領地保護系統啟用" },
+            { "type": "add", "text": "經濟系統與商店交易功能" },
+            { "type": "add", "text": "反作弊防護系統上線" }
+          ]
+        }
+      ]
+    }
+  },
+  "tools": {
+    "title": "實用工具",
+    "desc": "為 Minecraft 玩家和伺服器管理員提供的實用工具。",
+    "color": {
+      "title": "Minecraft 顏色代碼產生器",
+      "input": "輸入文字",
+      "colors": "顏色代碼",
+      "formats": "格式代碼",
+      "preview": "預覽",
+      "copy": "複製"
+    },
+    "chat": {
+      "title": "聊天文字格式化",
+      "desc": "使用顏色代碼建立格式化的聊天訊息。用 & 加顏色代碼（0-f）或格式代碼（l, n, o 等）。",
+      "input": "輸入文字",
+      "preview": "預覽",
+      "output": "格式化輸出（用於控制台/指令）",
+      "copy": "複製"
+    },
+    "ip": {
+      "title": "伺服器 IP 檢測",
+      "check": "檢測",
+      "players": "玩家",
+      "max": "上限",
+      "version": "版本",
+      "ping": "延遲",
+      "sample": "在線玩家"
+    },
+    "uuid": {
+      "title": "UUID 查詢",
+      "lookup": "查詢",
+      "uuid": "UUID（帶格式）",
+      "no_dash": "UUID（無橫線）"
+    },
+    "coords": {
+      "title": "座標轉換器",
+      "desc": "在主世界和下界之間轉換座標。下界的距離是主世界的 1/8。",
+      "overworld": "主世界",
+      "nether": "下界",
+      "to_nether": "轉換到下界",
+      "to_overworld": "轉換到主世界",
+      "clear": "清空",
+      "tip": "Minecraft 中下界 1 格 = 主世界 8 格。建造傳送門時請使用對應座標！"
+    },
+    "commands": {
+      "title": "伺服器指令參考",
+      "desc": "Aeracraft 常用指令。點擊任意指令即可複製。",
+      "search": "搜尋指令...",
+      "general": "通用指令",
+      "teleport": "傳送指令",
+      "protection": "領地保護",
+      "cmd_help": "顯示說明選單",
+      "cmd_spawn": "傳送到出生點",
+      "cmd_home": "傳送到你的家",
+      "cmd_sethome": "設定家的位置",
+      "cmd_back": "傳送到上一個位置",
+      "cmd_tpa": "發送傳送請求",
+      "cmd_tpaccept": "接受傳送請求",
+      "cmd_tpdeny": "拒絕傳送請求",
+      "cmd_msg": "發送私訊",
+      "cmd_r": "回覆上一條私訊",
+      "cmd_pay": "向玩家轉帳",
+      "cmd_bal": "檢視餘額",
+      "cmd_tp": "傳送到玩家身邊",
+      "cmd_tpall": "將所有玩家傳送到你身邊",
+      "cmd_back2": "返回上一個位置",
+      "cmd_warp": "傳送到傳送點",
+      "cmd_warps": "列出所有傳送點",
+      "cmd_res_create": "建立新領地",
+      "cmd_res_select": "選擇區域（使用木斧）",
+      "cmd_res_info": "檢視領地資訊",
+      "cmd_res_addplayer": "將玩家新增到領地",
+      "cmd_res_remove": "刪除領地",
+      "tip": "指令不分大小寫。輸入部分指令後按 Tab 鍵可自動補全。"
+    },
+    "residence": {
+      "title": "Residence 外掛教程",
+      "desc": "Residence 是領地保護外掛。圈佔土地、設定權限、保護建築——無需安裝任何客戶端 Mod。",
+      "what_title": "什麼是 Residence？",
+      "create_title": "如何建立",
+      "manage_title": "領地管理",
+      "flags_title": "權限標誌",
+      "tips_title": "小技巧",
+      "what_p1": "Residence 允許你圈佔一片矩形區域，並控制誰能在裡面做什麼。這是 Aeracraft 上保護建築的主要方式。",
+      "what_f1": "圈佔矩形土地區域",
+      "what_f2": "控制每個區域的建造、使用、PvP 等權限",
+      "what_f3": "將信任的玩家新增到你的領地",
+      "what_f4": "無需客戶端 Mod——全部伺服器端運行",
+      "create_s1": "使用木斧選擇區域",
+      "create_s2": "左鍵點擊一個角，右鍵點擊對角",
+      "create_s2_desc": "這會建立一個選區，聊天欄會顯示確認訊息。",
+      "create_s3": "建立領地",
+      "manage_add": "將玩家新增到你的領地",
+      "manage_remove": "從領地中移除玩家",
+      "manage_rename": "重新命名你的領地",
+      "manage_delete": "永久刪除一個領地",
+      "flags_desc": "標誌控制玩家在領地內能做什麼。使用 /res set <領地> <標誌> <true|false> 設定。",
+      "flag_build": "允許/禁止建造",
+      "flag_use": "允許/禁止使用物品（門、按鈕等）",
+      "flag_pvp": "允許/禁止玩家對戰",
+      "flag_chest": "允許/禁止開啟箱子",
+      "flag_destroy": "允許/禁止破壞方塊",
+      "flag_flow": "允許/禁止水流/岩漿流動",
+      "flag_fire": "允許/禁止火焰蔓延",
+      "flag_tnt": "允許/禁止 TNT 爆炸",
+      "flag_example": "範例：在你的領地中禁用 PvP：",
+      "tip1": "你的第一個領地免費！額外領地可能需要遊戲內金錢。",
+      "tip2": "使用金斧可以更快選擇——功能與木斧相同但速度更快。",
+      "tip3": "你可以在領地內建立子區域，設定不同的權限級別。",
+      "tip4": "使用 /res info 檢視領地的所有標誌和玩家列表。",
+      "tip5": "領地不能與其他玩家的領地重疊。"
+    }
   }
 }

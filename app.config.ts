@@ -4,7 +4,6 @@ export default defineAppConfig({
     logo: 'A',
     socials: [
       { name: 'Discord', url: 'https://discord.gg/n9F8T6TXr', icon: 'svg:discord' },
-      { name: 'Twitter', url: 'https://twitter.com/aeracraft', icon: 'svg:twitter' },
       { name: 'QQ', url: 'https://qm.qq.com/q/e99d4kJTEs', icon: 'svg:qq' }
     ]
   },
@@ -13,7 +12,9 @@ export default defineAppConfig({
     { href: '#home', key: 'nav.home' },
     { href: '#servers', key: 'nav.servers' },
     { href: '#features', key: 'nav.features' },
-    { href: '#rules', key: 'nav.rules' }
+    { href: '#rules', key: 'nav.rules' },
+    { href: '/docs', key: 'nav.docs' },
+    { href: '/tools', key: 'nav.tools' }
   ],
 
   servers: [
