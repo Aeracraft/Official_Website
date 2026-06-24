@@ -18,23 +18,16 @@ jobs:
           npm ci
           npm run generate
 
-      - name: Setup SSH
-        shell: bash
-        run: |
-          mkdir -p "$HOME/.ssh"
-          echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > "$HOME/.ssh/deploy_key"
-          chmod 600 "$HOME/.ssh/deploy_key"
-          ssh-keyscan -p ${{ secrets.DEPLOY_SERVER_PORT }} ${{ secrets.DEPLOY_TO }} >> "$HOME/.ssh/known_hosts" 2>/dev/null
+      - uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
 
-      - name: Deploy via rsync
-        shell: bash
+      - name: Add host key
+        run: ssh-keyscan -p ${{ secrets.DEPLOY_SERVER_PORT }} ${{ secrets.DEPLOY_TO }} >> ~/.ssh/known_hosts
+
+      - name: Deploy
         run: |
           rsync -avz --delete \
-            -e "ssh -i $HOME/.ssh/deploy_key -p ${{ secrets.DEPLOY_SERVER_PORT }}" \
+            -e "ssh -p ${{ secrets.DEPLOY_SERVER_PORT }}" \
             .output/public/ \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_TO }}:${{ secrets.DEPLOY_TARGET }}
-
-      - name: Cleanup SSH key
-        if: always()
-        shell: bash
-        run: rm -f "$HOME/.ssh/deploy_key"
