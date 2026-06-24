@@ -5,7 +5,8 @@
     "features": "Features",
     "gamemodes": "Game Modes",
     "rules": "Rules",
-    "join": "Join Server"
+    "join": "Join Server",
+    "top": "Back to top"
   },
   "hero": {
     "badge": "Server Online",

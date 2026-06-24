@@ -5,7 +5,8 @@
     "features": "特色功能",
     "gamemodes": "遊戲模式",
     "rules": "伺服器規則",
-    "join": "加入伺服器"
+    "join": "加入伺服器",
+    "top": "回到頂部"
   },
   "hero": {
     "badge": "伺服器在線",

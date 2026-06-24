@@ -28,6 +28,7 @@ html {
   scroll-behavior: smooth;
   background: #f8f9fb;
   color: #1a1a2e;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .dark html,
@@ -58,6 +59,10 @@ body {
 @keyframes gradient-text {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(69, 164, 60, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(69, 164, 60, 0); }
 }
 
 /* ===== Utility Classes ===== */
@@ -99,6 +104,17 @@ body {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(69, 164, 60, 0.25);
   box-shadow: 0 4px 32px rgba(69, 164, 60, 0.08);
+}
+
+/* ===== Card Hover Effect ===== */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+.dark .card-hover:hover {
+  box-shadow: 0 12px 40px rgba(69, 164, 60, 0.1);
 }
 
 /* ===== Scroll Reveal ===== */
@@ -181,6 +197,10 @@ body {
   background: rgba(0, 0, 0, 0.02);
   cursor: pointer;
   transition: all 0.25s;
+  user-select: none;
+}
+.ip-box:active {
+  transform: scale(0.97);
 }
 .ip-box:hover {
   border-color: rgba(69, 164, 60, 0.35);
@@ -200,17 +220,62 @@ body {
   font-weight: 500;
 }
 
-/* ===== Footer social icons — boost contrast in light ===== */
+/* ===== Footer social icons ===== */
 .social-icon {
   color: rgba(0, 0, 0, 0.25);
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 .social-icon:hover {
   color: rgba(0, 0, 0, 0.55);
+  transform: scale(1.15);
 }
 .dark .social-icon {
   color: rgba(255, 255, 255, 0.2);
 }
 .dark .social-icon:hover {
   color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== Scroll to Top ===== */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: all 0.25s;
+  backdrop-filter: blur(12px);
+}
+.scroll-top-btn:hover {
+  background: rgba(69, 164, 60, 0.1);
+  border-color: rgba(69, 164, 60, 0.3);
+  color: #45a43c;
+  transform: translateY(-2px);
+}
+.dark .scroll-top-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.35);
+}
+.dark .scroll-top-btn:hover {
+  background: rgba(69, 164, 60, 0.12);
+  border-color: rgba(69, 164, 60, 0.35);
+  color: #5cc850;
+  box-shadow: 0 4px 20px rgba(69, 164, 60, 0.15);
+}
+
+/* ===== Mobile Optimizations ===== */
+@media (max-width: 640px) {
+  .ip-box code {
+    font-size: 0.85rem;
+  }
 }

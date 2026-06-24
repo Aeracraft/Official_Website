@@ -5,7 +5,8 @@
     "features": "特色功能",
     "gamemodes": "游戏模式",
     "rules": "服务器规则",
-    "join": "加入服务器"
+    "join": "加入服务器",
+    "top": "回到顶部"
   },
   "hero": {
     "badge": "服务器在线",
