@@ -18,13 +18,20 @@ jobs:
           npm ci
           npm run generate
 
-      - name: Deploy to server
-        uses: easingthemes/ssh-deploy@v5
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.DEPLOY_TO }}
-          REMOTE_PORT: ${{ secrets.DEPLOY_SERVER_PORT }}
-          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-          TARGET: ${{ secrets.DEPLOY_TARGET }}
-          SOURCE: .output/public/
-          ARGS: "-avz --delete"
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.DEPLOY_SERVER_PORT }} ${{ secrets.DEPLOY_TO }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p ${{ secrets.DEPLOY_SERVER_PORT }}" \
+            .output/public/ \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_TO }}:${{ secrets.DEPLOY_TARGET }}
+
+      - name: Cleanup SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
