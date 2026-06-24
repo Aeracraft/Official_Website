@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "首頁",
+    "servers": "伺服器",
+    "features": "特色功能",
+    "gamemodes": "遊戲模式",
+    "rules": "伺服器規則",
+    "join": "加入伺服器"
+  },
+  "hero": {
+    "badge": "伺服器在線",
+    "badge_offline": "伺服器離線",
+    "title1": "歡迎來到",
+    "title2": "Aeracraft",
+    "desc": "前所未有的 Minecraft 體驗。加入我們 85,000+ 玩家的社群，暢享零延遲、多模式的極致樂趣。",
+    "start": "開始遊戲",
+    "discord": "加入 Discord",
+    "copy": "複製伺服器 IP",
+    "copied": "已複製！"
+  },
+  "stats": {
+    "online": "總在線",
+    "gamemodes": "遊戲模式",
+    "online_servers": "在線伺服器"
+  },
+  "servers": {
+    "title": "伺服器狀態",
+    "desc": "所有 Aeracraft 伺服器的即時狀態。",
+    "players": "玩家",
+    "version": "版本",
+    "ping": "延遲",
+    "offline_msg": "伺服器目前離線"
+  },
+  "features": {
+    "title": "為什麼選擇",
+    "suffix": "？",
+    "desc": "我們提供最優質的 Minecraft 伺服器體驗，搭載尖端技術與熱情的管理團隊。",
+    "items": [
+      { "title": "反作弊系統", "desc": "先進的防護機制，確保每位玩家的公平遊戲體驗。" },
+      { "title": "高效能", "desc": "優化的伺服器，99.9% 在線率，極低延遲。" },
+      { "title": "活躍社群", "desc": "友善的玩家與 24/7 全天候在線的管理團隊。" },
+      { "title": "自訂外掛", "desc": "獨特的功能與玩法增強，別處找不到的專屬體驗。" },
+      { "title": "定期活動", "desc": "每週活動、競賽與獨家獎勵。" },
+      { "title": "持續更新", "desc": "支援最新 Minecraft 版本，及時更新。" }
+    ]
+  },
+  "gamemodes": {
+    "title": "遊戲模式",
+    "desc": "選擇你的冒險。從經典生存到競技小遊戲，應有盡有。",
+    "items": [
+      { "name": "生存模式", "players": "2,400+", "ip": "play.aeracraft.com", "desc": "經典生存體驗，含經濟系統、領地保護與任務系統。" },
+      { "name": "創造模式", "players": "800+", "ip": "creative.aeracraft.com", "desc": "無限資源與飛行，自由建造你的夢想之作。" },
+      { "name": "空島生存", "players": "1,600+", "ip": "skyblock.aeracraft.com", "desc": "從浮空島嶼開始，建設你的天空帝國。" },
+      { "name": "小遊戲", "players": "3,200+", "ip": "games.aeracraft.com", "desc": "起床戰爭、空島戰爭、跑酷等更多精彩模式。" }
+    ]
+  },
+  "rules": {
+    "title": "伺服器規則",
+    "desc": "遵守以下規則，確保每位玩家的良好體驗。",
+    "items": [
+      "禁止使用外掛、作弊或利用漏洞",
+      "尊重所有玩家與工作人員",
+      "禁止現實貨幣交易（RMT）",
+      "禁止宣傳其他伺服器",
+      "聊天請使用英文或使用 /msg 私聊",
+      "禁止惡意破壞或洗版"
+    ]
+  },
+  "cta": {
+    "title": "準備好開始你的冒險了嗎？",
+    "desc": "加入已經在 Aeracraft 探索、建造和競技的數千名玩家。"
+  },
+  "footer": {
+    "copyright": "版權所有。",
+    "disclaimer": "與 Mojang AB 無關"
+  }
+}

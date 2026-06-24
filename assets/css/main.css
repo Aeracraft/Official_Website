@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'DingTalk JinBuTi';
+  src: url('~/assets/font/DingTalk-JinBuTi.woff2') format('woff2'),
+       url('~/assets/font/DingTalk-JinBuTi.woff') format('woff'),
+       url('~/assets/font/DingTalk-JinBuTi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-mc-green: #45a43c;
+  --color-mc-green-light: #5cc850;
+  --color-mc-dark: #0c0c14;
+  --color-mc-surface: #14141f;
+  --color-mc-surface-light: #1c1c2a;
+  --color-mc-gold: #f5a623;
+  --color-mc-diamond: #4fc3f7;
+  --color-mc-redstone: #ef5350;
+  --color-mc-purple: #ab47bc;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f8f9fb;
+  color: #1a1a2e;
+}
+
+.dark html,
+.dark {
+  background: var(--color-mc-dark);
+  color: #e2e8f0;
+}
+
+body {
+  font-family: 'DingTalk JinBuTi', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== Keyframes ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes particle-drift {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+}
+@keyframes gradient-text {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== Utility Classes ===== */
+.anim-slide-up { animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.anim-float { animation: float 5s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+
+/* ===== Gradient Text ===== */
+.text-gradient {
+  background: linear-gradient(135deg, #45a43c, #5cc850, #4fc3f7);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text 3s ease infinite;
+}
+
+/* ===== Glass ===== */
+.glass {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(16px);
+}
+.glass:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(69, 164, 60, 0.25);
+  box-shadow: 0 4px 24px rgba(69, 164, 60, 0.06);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+.dark .glass:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(69, 164, 60, 0.25);
+  box-shadow: 0 4px 32px rgba(69, 164, 60, 0.08);
+}
+
+/* ===== Scroll Reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== Particles ===== */
+.particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: particle-drift linear infinite;
+}
+.dark .particle--green { background: #45a43c; box-shadow: 0 0 8px #45a43c66; }
+.dark .particle--diamond { background: #4fc3f7; box-shadow: 0 0 8px #4fc3f766; }
+.dark .particle--gold { background: #f5a623; box-shadow: 0 0 8px #f5a62366; }
+.dark .particle--purple { background: #ab47bc; box-shadow: 0 0 8px #ab47bc66; }
+.particle--green { background: #45a43c44; box-shadow: 0 0 6px #45a43c22; }
+.particle--diamond { background: #4fc3f744; box-shadow: 0 0 6px #4fc3f722; }
+.particle--gold { background: #f5a62344; box-shadow: 0 0 6px #f5a62322; }
+.particle--purple { background: #ab47bc44; box-shadow: 0 0 6px #ab47bc22; }
+
+/* ===== Hero Mesh Gradient ===== */
+.hero-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(69, 164, 60, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79, 195, 247, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(171, 71, 188, 0.03) 0%, transparent 60%);
+}
+.dark .hero-mesh {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(69, 164, 60, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(79, 195, 247, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(171, 71, 188, 0.05) 0%, transparent 60%);
+}
+
+/* ===== Dot Grid ===== */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+}
+
+/* ===== Section Separator ===== */
+.sep {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(69, 164, 60, 0.12) 50%, transparent 100%);
+}
+
+/* ===== Stat Card ===== */
+.stat-card {
+  background: rgba(0, 0, 0, 0.015);
+  transition: background 0.2s;
+}
+.stat-card:hover {
+  background: rgba(69, 164, 60, 0.04);
+}
+.dark .stat-card {
+  background: transparent;
+}
+.dark .stat-card:hover {
+  background: rgba(69, 164, 60, 0.06);
+}
+
+/* ===== IP Box ===== */
+.ip-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.ip-box:hover {
+  border-color: rgba(69, 164, 60, 0.35);
+  background: rgba(69, 164, 60, 0.05);
+}
+.dark .ip-box {
+  border-color: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+}
+.dark .ip-box:hover {
+  border-color: rgba(69, 164, 60, 0.35);
+  background: rgba(69, 164, 60, 0.06);
+}
+.ip-box code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ===== Footer social icons — boost contrast in light ===== */
+.social-icon {
+  color: rgba(0, 0, 0, 0.25);
+  transition: color 0.2s;
+}
+.social-icon:hover {
+  color: rgba(0, 0, 0, 0.55);
+}
+.dark .social-icon {
+  color: rgba(255, 255, 255, 0.2);
+}
+.dark .social-icon:hover {
+  color: rgba(255, 255, 255, 0.5);
+}

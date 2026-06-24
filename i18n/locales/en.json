@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Home",
+    "servers": "Servers",
+    "features": "Features",
+    "gamemodes": "Game Modes",
+    "rules": "Rules",
+    "join": "Join Server"
+  },
+  "hero": {
+    "badge": "Server Online",
+    "badge_offline": "Server Offline",
+    "title1": "Welcome to",
+    "title2": "Aeracraft",
+    "desc": "Experience Minecraft like never before. Join our community of 85,000+ players across multiple game modes with zero lag and maximum fun.",
+    "start": "Start Playing",
+    "discord": "Join Discord",
+    "copy": "Copy Server IP",
+    "copied": "Copied!"
+  },
+  "stats": {
+    "online": "Total Online",
+    "gamemodes": "Game Modes",
+    "online_servers": "Online Servers"
+  },
+  "servers": {
+    "title": "Server Status",
+    "desc": "Real-time status for all Aeracraft servers.",
+    "players": "Players",
+    "version": "Version",
+    "ping": "Ping",
+    "offline_msg": "Server is currently offline"
+  },
+  "features": {
+    "title": "Why Choose",
+    "suffix": "?",
+    "desc": "We provide the best Minecraft server experience with cutting-edge technology and passionate staff.",
+    "items": [
+      { "title": "Anti-Cheat", "desc": "Advanced protection system ensuring fair gameplay for everyone." },
+      { "title": "High Performance", "desc": "Optimized server with 99.9% uptime and minimal lag." },
+      { "title": "Active Community", "desc": "Friendly players and dedicated staff available 24/7." },
+      { "title": "Custom Plugins", "desc": "Unique features and gameplay enhancements you won't find elsewhere." },
+      { "title": "Regular Events", "desc": "Weekly events, competitions, and exclusive rewards." },
+      { "title": "Always Updated", "desc": "Latest Minecraft version support with timely updates." }
+    ]
+  },
+  "gamemodes": {
+    "title": "Game Modes",
+    "desc": "Choose your adventure. From classic survival to competitive mini-games, we have it all.",
+    "items": [
+      { "name": "Survival", "players": "2,400+", "ip": "play.aeracraft.com", "desc": "Classic survival experience with economy, land claims, and quests." },
+      { "name": "Creative", "players": "800+", "ip": "creative.aeracraft.com", "desc": "Unlimited resources and flight. Build your dream creations." },
+      { "name": "SkyBlock", "players": "1,600+", "ip": "skyblock.aeracraft.com", "desc": "Start on a floating island and build your sky empire." },
+      { "name": "Mini-Games", "players": "3,200+", "ip": "games.aeracraft.com", "desc": "BedWars, SkyWars, Parkour and more exciting game modes." }
+    ]
+  },
+  "rules": {
+    "title": "Server Rules",
+    "desc": "Follow these rules to ensure a great experience for everyone.",
+    "items": [
+      "No hacking, cheating, or exploiting bugs",
+      "Be respectful to all players and staff",
+      "No real-money trading (RMT)",
+      "No advertising other servers",
+      "Keep chat in English or use /msg for private",
+      "No griefing or spamming"
+    ]
+  },
+  "cta": {
+    "title": "Ready to Start Your Adventure?",
+    "desc": "Join thousands of players already exploring, building, and competing on Aeracraft."
+  },
+  "footer": {
+    "copyright": "All rights reserved.",
+    "disclaimer": "Not affiliated with Mojang AB"
+  }
+}
