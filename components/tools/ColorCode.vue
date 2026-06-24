@@ -47,6 +47,10 @@ function insertCode(code: string) {
   input.value += `&${code}`
 }
 
+const previewHtml = computed(() => {
+  return preview.value.replace(/§([0-9a-fk-or])/gi, '<span style="color:inherit" class="mc-color-$1">')
+})
+
 function copyColor() {
   navigator.clipboard.writeText(preview.value)
   copied.value = true
@@ -101,7 +105,7 @@ function copyColor() {
 
       <div class="p-4 rounded-xl bg-mc-dark/5 dark:bg-white/5 border border-black/[0.05] dark:border-white/[0.05]">
         <label class="text-xs font-medium text-gray-500 dark:text-white/30 uppercase tracking-wider mb-2 block">{{ t('tools.color.preview') }}</label>
-        <p class="text-base font-mono" v-html="preview.replace(/§([0-9a-fk-or])/gi, '<span style=\"color:inherit\" class=\"mc-color-$1\">') || preview" />
+        <p class="text-base font-mono" v-html="previewHtml" />
         <div class="mt-2 flex items-center gap-2">
           <code class="text-[12px] font-mono text-gray-400 dark:text-white/25 break-all">{{ preview }}</code>
           <button class="shrink-0 px-2 py-1 text-[11px] rounded-md bg-mc-green/10 text-mc-green hover:bg-mc-green/20 transition-colors" @click="copyColor">
