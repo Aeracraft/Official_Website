@@ -3,8 +3,9 @@ export default defineAppConfig({
     name: 'Aeracraft',
     logo: 'A',
     socials: [
-      { name: 'Discord', url: 'https://discord.gg/aeracraft', icon: 'svg:discord' },
-      { name: 'Twitter', url: 'https://twitter.com/aeracraft', icon: 'svg:twitter' }
+      { name: 'Discord', url: 'https://discord.gg/n9F8T6TXr', icon: 'svg:discord' },
+      { name: 'Twitter', url: 'https://twitter.com/aeracraft', icon: 'svg:twitter' },
+      { name: 'QQ', url: 'https://qm.qq.com/q/e99d4kJTEs', icon: 'svg:qq' }
     ]
   },
 
