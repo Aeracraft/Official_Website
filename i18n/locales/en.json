@@ -30,7 +30,8 @@
     "players": "Players",
     "version": "Version",
     "ping": "Ping",
-    "offline_msg": "Server is currently offline"
+    "offline_msg": "Server is currently offline",
+    "refresh": "Refresh"
   },
   "features": {
     "title": "Why Choose",

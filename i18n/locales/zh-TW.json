@@ -30,7 +30,8 @@
     "players": "玩家",
     "version": "版本",
     "ping": "延遲",
-    "offline_msg": "伺服器目前離線"
+    "offline_msg": "伺服器目前離線",
+    "refresh": "刷新間隔"
   },
   "features": {
     "title": "為什麼選擇",

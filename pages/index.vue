@@ -9,7 +9,7 @@ useSeoMeta({
 
 useScrollReveal()
 const { particles } = useParticles()
-const { servers, anyOnline } = useServerStatus()
+const { servers, anyOnline, refreshInterval, setRefreshInterval } = useServerStatus()
 
 const colorMode = useColorMode()
 const toast = useToast()
@@ -47,6 +47,13 @@ onMounted(() => {
     showScrollTop.value = window.scrollY > 500
   })
 })
+
+const refreshOptions = [
+  { label: '10s', value: 10000 },
+  { label: '30s', value: 30000 },
+  { label: '60s', value: 60000 },
+  { label: '120s', value: 120000 },
+]
 
 const features = computed(() => appConfig.features.map(f => ({
   icon: f.icon,
@@ -250,6 +257,21 @@ const navLinks = computed(() => appConfig.nav.map(l => ({
           <p class="text-xs font-semibold text-mc-green uppercase tracking-[0.2em] mb-3">{{ t('nav.servers') }}</p>
           <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">{{ t('servers.title') }}</h2>
           <p class="text-gray-500 dark:text-white/35 max-w-lg mx-auto text-sm sm:text-base leading-relaxed">{{ t('servers.desc') }}</p>
+        </div>
+
+        <div class="flex items-center justify-center gap-1.5 mb-8 reveal">
+          <span class="text-[11px] font-medium text-gray-400 dark:text-white/25 uppercase tracking-wider mr-1">{{ t('servers.refresh') }}</span>
+          <button
+            v-for="opt in refreshOptions"
+            :key="opt.value"
+            class="px-2.5 py-1 text-[11px] font-medium rounded-md transition-all"
+            :class="refreshInterval === opt.value
+              ? 'bg-mc-green/15 text-mc-green border border-mc-green/20'
+              : 'text-gray-400 dark:text-white/25 hover:text-gray-600 dark:hover:text-white/50 border border-transparent hover:border-black/[0.06] dark:hover:border-white/[0.06]'"
+            @click="setRefreshInterval(opt.value)"
+          >
+            {{ opt.label }}
+          </button>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">

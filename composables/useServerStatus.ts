@@ -39,6 +39,9 @@ export function useServerStatus() {
     }))
   )
 
+  const refreshInterval = ref(appConfig.refreshInterval)
+  let timer: ReturnType<typeof setInterval> | null = null
+
   async function fetchOne(index: number) {
     const s = servers.value[index]
     const cfg = appConfig.servers[index]
@@ -59,14 +62,40 @@ export function useServerStatus() {
     await Promise.all(servers.value.map((_, i) => fetchOne(i)))
   }
 
+  function startTimer() {
+    stopTimer()
+    if (import.meta.client && refreshInterval.value > 0) {
+      timer = setInterval(fetchAll, refreshInterval.value)
+    }
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer)
+      timer = null
+    }
+  }
+
+  function setRefreshInterval(ms: number) {
+    refreshInterval.value = ms
+    if (import.meta.client) {
+      localStorage.setItem('server_refresh_interval', String(ms))
+    }
+    startTimer()
+  }
+
   const anyOnline = computed(() => servers.value.some(s => s.status?.status === 'online'))
 
   onMounted(() => {
+    const saved = localStorage.getItem('server_refresh_interval')
+    if (saved) refreshInterval.value = Number(saved)
     fetchAll()
-    if (import.meta.client) {
-      setInterval(fetchAll, appConfig.refreshInterval)
-    }
+    startTimer()
   })
 
-  return { servers, anyOnline, refresh: fetchAll }
+  onUnmounted(() => {
+    stopTimer()
+  })
+
+  return { servers, anyOnline, refresh: fetchAll, refreshInterval, setRefreshInterval }
 }
