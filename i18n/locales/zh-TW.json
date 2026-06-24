@@ -265,7 +265,7 @@
       "manage_remove": "從領地中移除玩家",
       "manage_rename": "重新命名你的領地",
       "manage_delete": "永久刪除一個領地",
-      "flags_desc": "標誌控制玩家在領地內能做什麼。使用 /res set <領地> <標誌> <true|false> 設定。",
+      "flags_desc": "標誌控制玩家在領地內能做什麼。使用 /res set [領地] [標誌] [true|false] 設定。",
       "flag_build": "允許/禁止建造",
       "flag_use": "允許/禁止使用物品（門、按鈕等）",
       "flag_pvp": "允許/禁止玩家對戰",

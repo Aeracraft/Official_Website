@@ -123,11 +123,11 @@
       "items": [
         { "q": "What version of Minecraft do I need?", "a": "We support the latest stable release of Minecraft Java Edition. Check our Discord for version-specific announcements." },
         { "q": "Do I need to install any mods?", "a": "No mods required! Our server uses server-side plugins only. Just connect with a vanilla Minecraft client." },
-        { "q": "How do I protect my build?", "a": "Use the Residence plugin to claim land. Type /res select with a wooden axe to select corners, then /res create <name> to claim." },
+        { "q": "How do I protect my build?", "a": "Use the Residence plugin to claim land. Type /res select with a wooden axe to select corners, then /res create [name] to claim." },
         { "q": "How do I get money?", "a": "You can earn money by selling items, completing quests, mining, or trading with other players. Use /bal to check your balance." },
         { "q": "I was griefed! What do I do?", "a": "Contact a staff member immediately with evidence (screenshots). We take griefing very seriously and will help restore your build." },
         { "q": "Can I play with friends on different accounts?", "a": "Yes! As long as each player has a legitimate Minecraft Java Edition account, they can join and play together." },
-        { "q": "How do I report a bug or cheater?", "a": "Use /report <player> <reason> in-game, or create a ticket on our Discord server with as much detail as possible." },
+        { "q": "How do I report a bug or cheater?", "a": "Use /report [player] [reason] in-game, or create a ticket on our Discord server with as much detail as possible." },
         { "q": "Is there a donation system?", "a": "Yes, we have a rank system with perks. Check our Discord store for available ranks and benefits." }
       ]
     },
@@ -265,7 +265,7 @@
       "manage_remove": "Remove a player from your residence",
       "manage_rename": "Rename your residence",
       "manage_delete": "Permanently delete a residence",
-      "flags_desc": "Flags control what players can do in a residence. Set them with /res set <residence> <flag> <true|false>",
+      "flags_desc": "Flags control what players can do in a residence. Set them with /res set [residence] [flag] [true|false]",
       "flag_build": "Allow/deny building",
       "flag_use": "Allow/deny using items (doors, buttons, etc.)",
       "flag_pvp": "Allow/deny player vs player combat",
