@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy
         run: |
-          rsync -avz --delete \
+          rsync -avz --delete --exclude='.user.ini' \
             -e "ssh -p ${{ secrets.DEPLOY_SERVER_PORT }}" \
             .output/public/ \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_TO }}:${{ secrets.DEPLOY_TARGET }}
