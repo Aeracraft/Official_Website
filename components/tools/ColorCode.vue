@@ -28,7 +28,7 @@ const mcFormats = [
   { code: 'r', name: 'Reset', icon: 'R' },
 ]
 
-const input = ref('Hello Aeracraft!')
+const input = ref(t('tools.color.default'))
 const copied = ref(false)
 
 const preview = computed(() => {

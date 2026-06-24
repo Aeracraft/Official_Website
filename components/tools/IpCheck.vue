@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const host = ref('play.aeracraft.cn')
-const port = ref(25565)
+const appConfig = useAppConfig()
+const host = ref(appConfig.servers[0]?.host || '')
+const port = ref(appConfig.servers[0]?.port || 25565)
 const loading = ref(false)
 const result = ref<any>(null)
 const error = ref('')
@@ -29,13 +30,13 @@ async function check() {
       <input
         v-model="host"
         class="flex-1 px-4 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] text-sm text-gray-800 dark:text-white/80 font-mono focus:outline-none focus:border-mc-green/30 transition-colors"
-        placeholder="play.aeracraft.cn"
+        :placeholder="appConfig.servers[0]?.host"
       >
       <input
         v-model.number="port"
         type="number"
         class="w-28 px-4 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] text-sm text-gray-800 dark:text-white/80 font-mono focus:outline-none focus:border-mc-green/30 transition-colors"
-        placeholder="25565"
+        :placeholder="String(appConfig.servers[0]?.port)"
       >
       <button
         class="px-5 py-2.5 rounded-xl bg-mc-green text-white text-sm font-medium hover:bg-mc-green-light transition-colors disabled:opacity-50"
@@ -60,7 +61,7 @@ async function check() {
           <h3 class="text-base font-semibold text-gray-900 dark:text-white">{{ result.motd?.clean || host }}</h3>
           <div class="flex items-center gap-3 mt-0.5">
             <span class="text-[11px] font-mono" :class="result.status === 'online' ? 'text-mc-green' : 'text-mc-redstone'">
-              {{ result.status === 'online' ? 'ONLINE' : 'OFFLINE' }}
+                    {{ result.status === 'online' ? t('tools.ip.online') : t('tools.ip.offline') }}
             </span>
             <span v-if="result.version" class="text-[11px] text-gray-400 dark:text-white/25">v{{ result.version }}</span>
           </div>
@@ -87,7 +88,7 @@ async function check() {
       </div>
 
       <div class="p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02]">
-        <label class="text-xs font-medium text-gray-500 dark:text-white/30 uppercase tracking-wider mb-2 block">MOTD</label>
+        <label class="text-xs font-medium text-gray-500 dark:text-white/30 uppercase tracking-wider mb-2 block">{{ t('tools.ip.motd') }}</label>
         <p class="text-sm font-mono text-gray-600 dark:text-white/50 whitespace-pre-wrap">{{ result.motd?.clean || 'N/A' }}</p>
       </div>
 

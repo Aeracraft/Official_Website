@@ -97,7 +97,7 @@ const activeSection = ref('what')
             <span class="w-6 h-6 rounded-full bg-mc-diamond/10 flex items-center justify-center text-[11px] font-bold text-mc-diamond shrink-0 mt-0.5">3</span>
             <div>
               <p class="text-[13px] font-medium text-gray-700 dark:text-white/60 mb-1">{{ t('tools.residence.create_s3') }}</p>
-              <code class="text-[12px] font-mono text-mc-diamond">/res create 领地名称</code>
+              <code class="text-[12px] font-mono text-mc-diamond">/res create [name]</code>
             </div>
           </div>
         </div>
@@ -107,19 +107,19 @@ const activeSection = ref('what')
       <div v-if="activeSection === 'manage'" class="space-y-3">
         <div class="p-3 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] font-mono text-[13px] space-y-2">
           <div class="flex items-center gap-2">
-            <span class="text-mc-gold shrink-0">/res area addplayer &lt;领地&gt; &lt;玩家&gt;</span>
+            <span class="text-mc-gold shrink-0">/res area addplayer [residence] [player]</span>
           </div>
           <p class="text-[12px] text-gray-500 dark:text-white/35 pl-4">{{ t('tools.residence.manage_add') }}</p>
           <div class="flex items-center gap-2">
-            <span class="text-mc-gold shrink-0">/res area removeplayer &lt;领地&gt; &lt;玩家&gt;</span>
+            <span class="text-mc-gold shrink-0">/res area removeplayer [residence] [player]</span>
           </div>
           <p class="text-[12px] text-gray-500 dark:text-white/35 pl-4">{{ t('tools.residence.manage_remove') }}</p>
           <div class="flex items-center gap-2">
-            <span class="text-mc-gold shrink-0">/res rename &lt;旧名&gt; &lt;新名&gt;</span>
+            <span class="text-mc-gold shrink-0">/res rename [old] [new]</span>
           </div>
           <p class="text-[12px] text-gray-500 dark:text-white/35 pl-4">{{ t('tools.residence.manage_rename') }}</p>
           <div class="flex items-center gap-2">
-            <span class="text-mc-gold shrink-0">/res remove &lt;领地名&gt;</span>
+            <span class="text-mc-gold shrink-0">/res remove [name]</span>
           </div>
           <p class="text-[12px] text-gray-500 dark:text-white/35 pl-4">{{ t('tools.residence.manage_delete') }}</p>
         </div>
@@ -164,7 +164,7 @@ const activeSection = ref('what')
         </div>
         <div class="p-3 rounded-xl bg-black/[0.02] dark:bg-white/[0.02] mt-2">
           <p class="text-[12px] text-gray-500 dark:text-white/35">{{ t('tools.residence.flag_example') }}</p>
-          <code class="text-[12px] font-mono text-mc-purple">/res set &lt;领地&gt; pvp false</code>
+          <code class="text-[12px] font-mono text-mc-purple">/res set [residence] pvp false</code>
         </div>
       </div>
 

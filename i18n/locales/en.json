@@ -178,7 +178,10 @@
       "colors": "Color Codes",
       "formats": "Formatting Codes",
       "preview": "Preview",
-      "copy": "Copy"
+      "copy": "Copy",
+      "default": "Hello Aeracraft!",
+      "placeholder_player": "PlayerName",
+      "placeholder_chat": "&a[VIP] &ePlayerName &7: &fHello World!"
     },
     "chat": {
       "title": "Chat Text Formatter",
@@ -195,13 +198,17 @@
       "max": "Max",
       "version": "Version",
       "ping": "Ping",
-      "sample": "Online Players"
+      "sample": "Online Players",
+      "online": "ONLINE",
+      "offline": "OFFLINE",
+      "motd": "MOTD"
     },
     "uuid": {
       "title": "UUID Lookup",
       "lookup": "Lookup",
       "uuid": "UUID (Formatted)",
-      "no_dash": "UUID (No Dashes)"
+      "no_dash": "UUID (No Dashes)",
+      "copy": "Copy"
     },
     "coords": {
       "title": "Coordinate Converter",

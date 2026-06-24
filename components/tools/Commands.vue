@@ -9,29 +9,29 @@ const categories = [
       { cmd: '/home', desc: 'tools.commands.cmd_home' },
       { cmd: '/sethome', desc: 'tools.commands.cmd_sethome' },
       { cmd: '/back', desc: 'tools.commands.cmd_back' },
-      { cmd: '/tpa <玩家>', desc: 'tools.commands.cmd_tpa' },
+      { cmd: '/tpa <player>', desc: 'tools.commands.cmd_tpa' },
       { cmd: '/tpaccept', desc: 'tools.commands.cmd_tpaccept' },
       { cmd: '/tpdeny', desc: 'tools.commands.cmd_tpdeny' },
-      { cmd: '/msg <玩家> <消息>', desc: 'tools.commands.cmd_msg' },
-      { cmd: '/r <消息>', desc: 'tools.commands.cmd_r' },
-      { cmd: '/pay <玩家> <金额>', desc: 'tools.commands.cmd_pay' },
+      { cmd: '/msg <player> <message>', desc: 'tools.commands.cmd_msg' },
+      { cmd: '/r <message>', desc: 'tools.commands.cmd_r' },
+      { cmd: '/pay <player> <amount>', desc: 'tools.commands.cmd_pay' },
       { cmd: '/bal', desc: 'tools.commands.cmd_bal' },
     ]
   },
   {
     name: 'tools.commands.teleport',
     commands: [
-      { cmd: '/tp <玩家>', desc: 'tools.commands.cmd_tp' },
+      { cmd: '/tp <player>', desc: 'tools.commands.cmd_tp' },
       { cmd: '/tpall', desc: 'tools.commands.cmd_tpall' },
       { cmd: '/back', desc: 'tools.commands.cmd_back2' },
-      { cmd: '/warp <名称>', desc: 'tools.commands.cmd_warp' },
+      { cmd: '/warp <name>', desc: 'tools.commands.cmd_warp' },
       { cmd: '/warps', desc: 'tools.commands.cmd_warps' },
     ]
   },
   {
     name: 'tools.commands.protection',
     commands: [
-      { cmd: '/res create <名称>', desc: 'tools.commands.cmd_res_create' },
+      { cmd: '/res create <name>', desc: 'tools.commands.cmd_res_create' },
       { cmd: '/res select', desc: 'tools.commands.cmd_res_select' },
       { cmd: '/res info', desc: 'tools.commands.cmd_res_info' },
       { cmd: '/res area addplayer', desc: 'tools.commands.cmd_res_addplayer' },

@@ -47,7 +47,7 @@ function copyUUID(text: string) {
       <input
         v-model="playerName"
         class="flex-1 px-4 py-2.5 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] text-sm text-gray-800 dark:text-white/80 font-mono focus:outline-none focus:border-mc-green/30 transition-colors"
-        placeholder="PlayerName"
+        :placeholder="t('tools.color.placeholder_player')"
         @keyup.enter="lookup"
       >
       <button
@@ -76,7 +76,7 @@ function copyUUID(text: string) {
       <div class="p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02]">
         <div class="flex items-center justify-between mb-1">
           <label class="text-xs font-medium text-gray-500 dark:text-white/30 uppercase tracking-wider">{{ t('tools.uuid.uuid') }}</label>
-          <button class="text-[11px] text-mc-green hover:underline" @click="copyUUID(result.uuidFormatted)">Copy</button>
+          <button class="text-[11px] text-mc-green hover:underline" @click="copyUUID(result.uuidFormatted)">{{ t('tools.uuid.copy') }}</button>
         </div>
         <code class="text-sm font-mono text-gray-700 dark:text-white/60">{{ result.uuidFormatted }}</code>
       </div>
@@ -84,7 +84,7 @@ function copyUUID(text: string) {
       <div class="p-4 rounded-xl bg-black/[0.02] dark:bg-white/[0.02]">
         <div class="flex items-center justify-between mb-1">
           <label class="text-xs font-medium text-gray-500 dark:text-white/30 uppercase tracking-wider">{{ t('tools.uuid.no_dash') }}</label>
-          <button class="text-[11px] text-mc-green hover:underline" @click="copyUUID(result.uuid)">Copy</button>
+          <button class="text-[11px] text-mc-green hover:underline" @click="copyUUID(result.uuid)">{{ t('tools.uuid.copy') }}</button>
         </div>
         <code class="text-sm font-mono text-gray-700 dark:text-white/60">{{ result.uuid }}</code>
       </div>

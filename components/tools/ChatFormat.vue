@@ -27,7 +27,7 @@ function copyText() {
         v-model="input"
         rows="4"
         class="w-full px-4 py-3 rounded-xl border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.02] dark:bg-white/[0.02] text-sm text-gray-800 dark:text-white/80 font-mono focus:outline-none focus:border-mc-green/30 transition-colors resize-none"
-        placeholder="&a[VIP] &ePlayerName &7: &fHello World!"
+        :placeholder="t('tools.color.placeholder_chat')"
       />
     </div>
 

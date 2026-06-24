@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const appConfig = useAppConfig()
 const route = useRoute()
 const activeTool = ref(route.query.tool as string || 'color')
 
@@ -26,6 +27,7 @@ function setTool(key: string) {
 
 <template>
   <div class="min-h-screen dot-grid transition-colors duration-300">
+    <AppHeader />
     <div class="max-w-6xl mx-auto px-5 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-24">
       <div class="text-center mb-10 sm:mb-14">
         <p class="text-xs font-semibold text-mc-green uppercase tracking-[0.2em] mb-3">{{ t('nav.tools') }}</p>
@@ -64,5 +66,17 @@ function setTool(key: string) {
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-black/[0.06] dark:border-white/[0.05] px-5 sm:px-6 py-6 sm:py-8">
+      <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-md bg-gradient-to-br from-mc-green to-emerald-600 flex items-center justify-center text-white text-xs font-bold">{{ appConfig.site.logo }}</div>
+          <span class="text-sm font-medium text-gray-700 dark:text-white/70">{{ appConfig.site.name }}</span>
+          <span class="text-xs text-gray-400 dark:text-white/20 hidden sm:inline">· {{ t('footer.disclaimer') }}</span>
+        </div>
+        <span class="text-[11px] text-gray-400 dark:text-white/15">&copy; {{ new Date().getFullYear() }} {{ appConfig.site.name }}</span>
+      </div>
+    </footer>
   </div>
 </template>

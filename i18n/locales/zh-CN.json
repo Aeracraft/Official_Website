@@ -178,7 +178,10 @@
       "colors": "颜色代码",
       "formats": "格式代码",
       "preview": "预览",
-      "copy": "复制"
+      "copy": "复制",
+      "default": "你好 Aeracraft！",
+      "placeholder_player": "玩家名",
+      "placeholder_chat": "&a[VIP] &e玩家名 &7: &f你好世界！"
     },
     "chat": {
       "title": "聊天文本格式化",
@@ -195,13 +198,17 @@
       "max": "上限",
       "version": "版本",
       "ping": "延迟",
-      "sample": "在线玩家"
+      "sample": "在线玩家",
+      "online": "在线",
+      "offline": "离线",
+      "motd": "MOTD"
     },
     "uuid": {
       "title": "UUID 查询",
       "lookup": "查询",
       "uuid": "UUID（带格式）",
-      "no_dash": "UUID（无横线）"
+      "no_dash": "UUID（无横线）",
+      "copy": "复制"
     },
     "coords": {
       "title": "坐标转换器",
