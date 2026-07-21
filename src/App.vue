@@ -1,7 +1,7 @@
 <script setup>
 import { h } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
-import { NLayout, NLayoutHeader, NLayoutContent, NLayoutFooter, NMenu, NSpace, NButton } from 'naive-ui'
+import { NLayout, NLayoutHeader, NLayoutContent, NLayoutFooter, NMenu, NSpace, NButton, NMessageProvider } from 'naive-ui'
 import { site } from './config/site.js'
 
 const route = useRoute()
@@ -18,8 +18,9 @@ function renderMenuLabel(option) {
 </script>
 
 <template>
-  <NLayout class="site-layout">
-    <NLayoutHeader bordered class="site-header">
+  <NMessageProvider>
+    <NLayout class="site-layout">
+      <NLayoutHeader bordered class="site-header">
       <div class="header-inner">
         <RouterLink to="/" class="brand">
           <span class="brand-icon">⛏️</span>
@@ -54,7 +55,8 @@ function renderMenuLabel(option) {
         <p>{{ site.footer.copyright }}</p>
       </NSpace>
     </NLayoutFooter>
-  </NLayout>
+    </NLayout>
+  </NMessageProvider>
 </template>
 
 <style scoped>

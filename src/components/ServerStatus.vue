@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { NCard, NSpace, NTag, NButton, NSkeleton, NAlert, NMessage } from 'naive-ui'
+import { NCard, NSpace, NTag, NButton, NSkeleton, NAlert } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 import { site } from '../config/site.js'
 
 const props = defineProps({
@@ -15,6 +16,7 @@ const status = ref(null)
 const loading = ref(false)
 const error = ref(null)
 const copied = ref(false)
+const message = useMessage()
 
 const isOnline = computed(() => status.value?.status === 'online')
 const playerOnline = computed(() => Number(status.value?.players?.online || 0))
@@ -54,12 +56,12 @@ async function copyAddress() {
   try {
     await navigator.clipboard.writeText(server.javaAddress)
     copied.value = true
-    NMessage.success(`${site.serverStatus.copiedText}：${server.javaAddress}`)
+    message.success(`${site.serverStatus.copiedText}：${server.javaAddress}`)
     setTimeout(() => {
       copied.value = false
     }, 2000)
   } catch (e) {
-    NMessage.error('复制失败，请手动复制')
+    message.error('复制失败，请手动复制')
   }
 }
 
