@@ -4,96 +4,108 @@ import { NAlert } from 'naive-ui'
 import { site } from '../config/site.js'
 
 const config = site.announcement
-const showAlert = ref(false)
+const closedNoticeIds = ref([])
 
 const notices = computed(() => config.notices || [])
+const visibleNotices = computed(() => {
+  return notices.value.filter(notice => !closedNoticeIds.value.includes(notice.id))
+})
 
 function getAlertType(type) {
   const types = ['info', 'success', 'warning', 'error']
   return types.includes(type) ? type : 'info'
 }
 
-function handleClose() {
-  showAlert.value = false
-  if (config.onlyShowOnce) {
-    localStorage.setItem('aeracraft_announcement_shown', 'true')
-  }
+function handleClose(noticeId) {
+  closedNoticeIds.value.push(noticeId)
+  localStorage.setItem('aeracraft_closed_notices', JSON.stringify(closedNoticeIds.value))
 }
 
-function showAnnouncement() {
-  if (!config.enabled) return
-  if (!notices.value.length) return
-  if (config.onlyShowOnce) {
-    const shown = localStorage.getItem('aeracraft_announcement_shown')
-    if (shown === 'true') return
+function loadClosedNotices() {
+  const stored = localStorage.getItem('aeracraft_closed_notices')
+  if (stored) {
+    try {
+      closedNoticeIds.value = JSON.parse(stored)
+    } catch (e) {
+      closedNoticeIds.value = []
+    }
   }
-  showAlert.value = true
 }
 
 onMounted(() => {
-  setTimeout(() => {
-    showAnnouncement()
-  }, 500)
+  loadClosedNotices()
 })
 </script>
 
 <template>
-  <Transition name="fade">
-    <div v-if="showAlert" class="announcement-section">
+  <div v-if="visibleNotices.length > 0" class="notice-container">
+    <TransitionGroup name="slide">
       <NAlert
-        v-for="(notice, index) in notices"
-        :key="index"
+        v-for="notice in visibleNotices"
+        :key="notice.id"
         :type="getAlertType(notice.type)"
         :show-icon="true"
         :closable="config.closable"
         :bordered="false"
         class="notice-alert"
-        @close="handleClose"
+        @close="handleClose(notice.id)"
       >
         <span class="alert-title">{{ notice.title }}</span>
         <span class="alert-text">{{ notice.content }}</span>
       </NAlert>
-    </div>
-  </Transition>
+    </TransitionGroup>
+  </div>
 </template>
 
 <style scoped>
-.announcement-section {
-  padding: 8px 16px;
+.notice-container {
+  position: fixed;
+  top: 80px;
+  right: 16px;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  width: 360px;
 }
 .notice-alert :deep(.n-alert) {
-  padding: 8px 12px !important;
-  border-radius: 6px !important;
+  padding: 10px 14px !important;
+  border-radius: 8px !important;
   margin: 0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .notice-alert :deep(.n-alert__content) {
   padding: 0 !important;
 }
 .notice-alert :deep(.n-alert__icon) {
-  font-size: 14px !important;
+  font-size: 16px !important;
   margin-right: 8px !important;
 }
+.notice-alert :deep(.n-alert__close) {
+  font-size: 14px !important;
+}
 .alert-title {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-right: 8px;
 }
 .alert-text {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   opacity: 0.9;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
 }
-.fade-enter-from,
-.fade-leave-to {
+.slide-enter-from {
   opacity: 0;
+  transform: translateX(100%);
+}
+.slide-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.slide-move {
+  transition: transform 0.3s ease;
 }
 </style>

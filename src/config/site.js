@@ -178,29 +178,27 @@ export const site = {
 
   announcement: {
     enabled: true,
-    onlyShowOnce: true,
-    width: '480px',
-    maxWidth: '90vw',
     notices: [
       {
+        id: '20260721001',
         title: '📢 服务器公告',
-        content: '欢迎来到 AeraCraft！服务器现已正式开放，欢迎各位冒险者加入我们的大家庭。\n\n近期更新：\n• 生存服已开启\n• 大厅服务器已就绪\n• 后续将开放 RPG 和小游戏玩法',
+        content: '欢迎来到 AeraCraft！服务器现已正式开放，欢迎各位冒险者加入我们的大家庭。',
         type: 'info',
       },
       {
+        id: '20260721002',
         title: '🎁 新服福利',
-        content: '新服开启期间，所有玩家上线即可获得新手礼包一份！\n\n礼包内容：\n• 钻石 x 5\n• 附魔金苹果 x 2\n• 经验瓶 x 10',
+        content: '新服开启期间，所有玩家上线即可获得新手礼包一份！',
         type: 'success',
       },
       {
+        id: '20260721003',
         title: '⚠️ 注意事项',
-        content: '请遵守服务器规则，禁止使用任何作弊手段。\n\n违规行为将导致：\n• 警告\n• 临时封禁\n• 永久封禁',
+        content: '请遵守服务器规则，禁止使用任何作弊手段。',
         type: 'warning',
       },
     ],
-    showConfirmButton: true,
-    confirmButtonText: '我知道了',
-    showCancelButton: false,
+    closable: true,
     cancelButtonText: '取消',
     closable: true,
   },
