@@ -167,6 +167,7 @@ export const site = {
     playersLabel: '玩家',
     versionLabel: '版本',
     motdLabel: 'MOTD',
+    pingLabel: '延迟',
     refreshButton: '刷新状态',
     errorPrefix: '状态获取失败',
   },

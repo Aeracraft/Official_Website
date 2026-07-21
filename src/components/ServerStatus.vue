@@ -20,6 +20,14 @@ const playerOnline = computed(() => Number(status.value?.players?.online || 0))
 const playerMax = computed(() => Number(status.value?.players?.max || 0))
 const serverVersion = computed(() => status.value?.version || '')
 const serverMotd = computed(() => status.value?.motd || '')
+const serverPing = computed(() => Number(status.value?.delay || 0))
+const pingColor = computed(() => {
+  const ping = serverPing.value
+  if (ping === 0) return 'default'
+  if (ping < 50) return 'success'
+  if (ping < 100) return 'warning'
+  return 'error'
+})
 
 async function fetchStatus() {
   loading.value = true
@@ -65,6 +73,7 @@ onMounted(fetchStatus)
         </div>
         <div v-if="serverVersion" class="meta">{{ site.serverStatus.versionLabel }}：{{ serverVersion }}</div>
         <div v-if="serverMotd" class="meta">{{ site.serverStatus.motdLabel }}：{{ serverMotd }}</div>
+        <div class="meta" :class="`ping-${pingColor}`">{{ site.serverStatus.pingLabel }}：<span>{{ serverPing }}ms</span></div>
       </div>
 
       <NButton size="small" @click="fetchStatus" :loading="loading">{{ site.serverStatus.refreshButton }}</NButton>
@@ -97,6 +106,21 @@ onMounted(fetchStatus)
 }
 .meta {
   font-size: 0.85rem;
+  color: var(--mc-text-secondary);
+}
+.meta.ping-success span {
+  color: #52c41a;
+  font-weight: 600;
+}
+.meta.ping-warning span {
+  color: #faad14;
+  font-weight: 600;
+}
+.meta.ping-error span {
+  color: #ff4d4f;
+  font-weight: 600;
+}
+.meta.ping-default span {
   color: var(--mc-text-secondary);
 }
 </style>
