@@ -14,7 +14,7 @@ const router = useRouter()
         <h1>{{ site.hero.title }}</h1>
         <p class="slogan">{{ site.hero.subtitle }}</p>
         <p class="description">{{ site.hero.description }}</p>
-        <NSpace>
+        <NSpace justify="center" class="hero-buttons">
           <NButton
             v-for="btn in site.hero.buttons"
             :key="btn.label"
@@ -82,6 +82,11 @@ const router = useRouter()
   max-width: 650px;
   margin-left: auto;
   margin-right: auto;
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
 .servers-section {
   padding: 40px 0;
