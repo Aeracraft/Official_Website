@@ -205,6 +205,7 @@ export const site = {
 
   footer: {
     copyright: '© 2026 AeraCraft. All rights reserved.',
+    mojangDisclaimer: '本服务器不属于 Mojang Studios 或 Microsoft 所有。',
     links: [
       { label: '官网', url: 'https://aeracraft.com' },
       { label: '用户中心', url: 'https://user.aeracraft.com' },

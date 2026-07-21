@@ -55,6 +55,7 @@ function renderMenuLabel(option) {
           </a>
         </NSpace>
         <p>{{ site.footer.copyright }}</p>
+        <p class="mojang-disclaimer">{{ site.footer.mojangDisclaimer }}</p>
       </NSpace>
     </NLayoutFooter>
     </NLayout>
@@ -132,6 +133,10 @@ function renderMenuLabel(option) {
   margin: 8px 0 0;
   color: var(--mc-text-secondary);
   font-size: 0.875rem;
+}
+.mojang-disclaimer {
+  font-size: 0.75rem !important;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
