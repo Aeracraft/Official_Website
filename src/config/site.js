@@ -51,36 +51,47 @@ export const site = {
     ],
   },
 
-  gameModes: [
-    {
-      key: 'survival',
-      name: '生存玩法',
-      icon: '🌿',
-      description: '经典 SMP 生存体验，与好友共建家园、探索世界、挑战末影龙。保留原版乐趣的同时，提供友好的社区环境。',
-      features: ['原版生存', '玩家领地', '公平交易', '社区活动'],
+  home: {
+    intro: {
+      title: '核心玩法',
+      subtitle: '多种玩法，满足不同冒险者的需求',
     },
-    {
-      key: 'rpg',
-      name: 'RPG 玩法',
-      icon: '⚔️',
-      description: '沉浸式角色扮演世界，丰富的任务剧情、职业技能与副本挑战，书写属于你的冒险传说。',
-      features: ['剧情任务', '职业技能', '团队副本', '装备养成'],
-    },
-    {
-      key: 'minigames',
-      name: '小游戏',
-      icon: '🎮',
-      description: '轻松愉快的小游戏合集，随时随地来一局，和朋友们一较高下。',
-      features: ['多种小游戏', '快速匹配', '排行榜', '好友对战'],
-    },
-    {
-      key: 'bedwars',
-      name: '起床战争',
-      icon: '🛏️',
-      description: '经典的起床战争玩法，收集资源、摧毁敌方床铺，成为最后的胜利者。',
-      features: ['经典模式', '队伍对抗', '快速节奏', '赛季排行'],
-    },
-  ],
+  },
+
+  gameModes: {
+    pageTitle: '玩法介绍',
+    pageSubtitle: 'AeraCraft 提供多样化的游戏体验',
+    modes: [
+      {
+        key: 'survival',
+        name: '生存玩法',
+        icon: '🌿',
+        description: '经典 SMP 生存体验，与好友共建家园、探索世界、挑战末影龙。保留原版乐趣的同时，提供友好的社区环境。',
+        features: ['原版生存', '玩家领地', '公平交易', '社区活动'],
+      },
+      {
+        key: 'rpg',
+        name: 'RPG 玩法',
+        icon: '⚔️',
+        description: '沉浸式角色扮演世界，丰富的任务剧情、职业技能与副本挑战，书写属于你的冒险传说。',
+        features: ['剧情任务', '职业技能', '团队副本', '装备养成'],
+      },
+      {
+        key: 'minigames',
+        name: '小游戏',
+        icon: '🎮',
+        description: '轻松愉快的小游戏合集，随时随地来一局，和朋友们一较高下。',
+        features: ['多种小游戏', '快速匹配', '排行榜', '好友对战'],
+      },
+      {
+        key: 'bedwars',
+        name: '起床战争',
+        icon: '🛏️',
+        description: '经典的起床战争玩法，收集资源、摧毁敌方床铺，成为最后的胜利者。',
+        features: ['经典模式', '队伍对抗', '快速节奏', '赛季排行'],
+      },
+    ],
+  },
 
   rules: {
     title: '服务器规则',
@@ -118,6 +129,21 @@ export const site = {
   join: {
     title: '加入我们',
     subtitle: '选择适合你的方式，开启 AeraCraft 冒险',
+    sections: {
+      serverInfo: {
+        title: '连接信息',
+        versionLabel: '支持版本',
+        lobbyJavaLabel: '大厅 Java',
+        survivalJavaLabel: '生存 Java',
+        bedrockLabel: '基岩端口',
+      },
+      steps: {
+        title: '加入步骤',
+      },
+      links: {
+        title: '相关链接',
+      },
+    },
     steps: [
       { title: '启动游戏', content: '打开 Minecraft Java 版或基岩版，版本支持 1.20.1 ~ 26.2。' },
       { title: '添加服务器', content: '在多人游戏中添加服务器地址，大厅 play.aeracraft.cn，生存 smp.aeracraft.cn。' },
@@ -131,6 +157,18 @@ export const site = {
       { label: '玩家社区', url: 'https://forum.aeracraft.com', description: '交流、反馈与申诉' },
       { label: '生存地图', url: 'https://smap.aeracraft.com', description: '在线查看生存服地图' },
     ],
+  },
+
+  serverStatus: {
+    javaLabel: 'Java 地址',
+    bedrockLabel: '基岩地址',
+    onlineText: '在线',
+    offlineText: '离线',
+    playersLabel: '玩家',
+    versionLabel: '版本',
+    motdLabel: 'MOTD',
+    refreshButton: '刷新状态',
+    errorPrefix: '状态获取失败',
   },
 
   footer: {

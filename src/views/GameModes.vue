@@ -6,12 +6,12 @@ import { site } from '../config/site.js'
 <template>
   <div class="page">
     <div class="section-title">
-      <h2>玩法介绍</h2>
-      <p>AeraCraft 提供多样化的游戏体验</p>
+      <h2>{{ site.gameModes.pageTitle }}</h2>
+      <p>{{ site.gameModes.pageSubtitle }}</p>
     </div>
 
     <NGrid cols="1 s:2" responsive="screen" x-gap="24" y-gap="24">
-      <NGridItem v-for="mode in site.gameModes" :key="mode.key">
+      <NGridItem v-for="mode in site.gameModes.modes" :key="mode.key">
         <NCard class="game-card">
           <div class="game-header">
             <span class="game-icon">{{ mode.icon }}</span>

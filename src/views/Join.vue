@@ -11,29 +11,29 @@ import { site } from '../config/site.js'
     </div>
 
     <NCard class="join-card">
-      <h3>连接信息</h3>
+      <h3>{{ site.join.sections.serverInfo.title }}</h3>
       <div class="server-info">
         <div class="info-row">
-          <span>支持版本：</span>
+          <span>{{ site.join.sections.serverInfo.versionLabel }}：</span>
           <code>{{ site.versionRange }}</code>
         </div>
         <div class="info-row">
-          <span>大厅 Java：</span>
+          <span>{{ site.join.sections.serverInfo.lobbyJavaLabel }}：</span>
           <code>{{ site.servers.lobby.javaAddress }}</code>
         </div>
         <div class="info-row">
-          <span>生存 Java：</span>
+          <span>{{ site.join.sections.serverInfo.survivalJavaLabel }}：</span>
           <code>{{ site.servers.survival.javaAddress }}</code>
         </div>
         <div class="info-row">
-          <span>基岩端口：</span>
+          <span>{{ site.join.sections.serverInfo.bedrockLabel }}：</span>
           <code>{{ site.servers.lobby.bedrockAddress }}:{{ site.servers.lobby.bedrockPort }}</code>
         </div>
       </div>
 
       <NDivider />
 
-      <h3>加入步骤</h3>
+      <h3>{{ site.join.sections.steps.title }}</h3>
       <NSteps vertical>
         <NStep
           v-for="(step, index) in site.join.steps"
@@ -46,7 +46,7 @@ import { site } from '../config/site.js'
 
       <NDivider />
 
-      <h3>相关链接</h3>
+      <h3>{{ site.join.sections.links.title }}</h3>
       <NSpace>
         <NButton
           v-for="link in site.join.externalLinks"

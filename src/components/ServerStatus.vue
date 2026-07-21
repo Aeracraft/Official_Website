@@ -47,27 +47,27 @@ onMounted(fetchStatus)
 <template>
   <NCard :title="server.name" class="status-card">
     <NSpace vertical>
-      <div>Java 地址：<code>{{ server.javaAddress }}</code></div>
-      <div>基岩地址：<code>{{ server.bedrockAddress }}</code> : {{ server.bedrockPort }}</div>
+      <div>{{ site.serverStatus.javaLabel }}：<code>{{ server.javaAddress }}</code></div>
+      <div>{{ site.serverStatus.bedrockLabel }}：<code>{{ server.bedrockAddress }}</code> : {{ server.bedrockPort }}</div>
 
       <NSkeleton v-if="loading" text :repeat="3" />
 
       <NAlert v-else-if="error" type="error" :show-icon="false">
-        状态获取失败：{{ error }}
+        {{ site.serverStatus.errorPrefix }}：{{ error }}
       </NAlert>
 
       <div v-else-if="status" class="status-info">
         <div class="status-row">
           <NTag :type="isOnline ? 'success' : 'error'">
-            {{ isOnline ? '在线' : '离线' }}
+            {{ isOnline ? site.serverStatus.onlineText : site.serverStatus.offlineText }}
           </NTag>
-          <span class="player-count">玩家 {{ playerOnline }} / {{ playerMax }}</span>
+          <span class="player-count">{{ site.serverStatus.playersLabel }} {{ playerOnline }} / {{ playerMax }}</span>
         </div>
-        <div v-if="serverVersion" class="meta">版本：{{ serverVersion }}</div>
-        <div v-if="serverMotd" class="meta">MOTD：{{ serverMotd }}</div>
+        <div v-if="serverVersion" class="meta">{{ site.serverStatus.versionLabel }}：{{ serverVersion }}</div>
+        <div v-if="serverMotd" class="meta">{{ site.serverStatus.motdLabel }}：{{ serverMotd }}</div>
       </div>
 
-      <NButton size="small" @click="fetchStatus" :loading="loading">刷新状态</NButton>
+      <NButton size="small" @click="fetchStatus" :loading="loading">{{ site.serverStatus.refreshButton }}</NButton>
     </NSpace>
   </NCard>
 </template>

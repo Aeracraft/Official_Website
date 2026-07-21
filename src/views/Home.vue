@@ -34,11 +34,11 @@ const router = useRouter()
 
     <section class="intro">
       <div class="section-title">
-        <h2>核心玩法</h2>
-        <p>多种玩法，满足不同冒险者的需求</p>
+        <h2>{{ site.home.intro.title }}</h2>
+        <p>{{ site.home.intro.subtitle }}</p>
       </div>
       <NGrid cols="1 s:2 m:4" responsive="screen" x-gap="16" y-gap="16">
-        <NGridItem v-for="mode in site.gameModes.slice(0, 4)" :key="mode.key">
+        <NGridItem v-for="mode in site.gameModes.modes.slice(0, 4)" :key="mode.key">
           <NCard class="mode-card">
             <div class="mode-icon">{{ mode.icon }}</div>
             <h3>{{ mode.name }}</h3>
