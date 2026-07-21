@@ -1,10 +1,10 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { NButton, NCard, NAlert, NSpace } from 'naive-ui'
+import { NButton, NAlert, NSpace } from 'naive-ui'
 import { site } from '../config/site.js'
 
 const config = site.announcement
-const showModal = ref(false)
+const showAlert = ref(false)
 const currentIndex = ref(0)
 
 const notices = computed(() => config.notices || [])
@@ -16,15 +16,11 @@ const alertType = computed(() => {
   return types.includes(currentNotice.value?.type) ? currentNotice.value.type : 'info'
 })
 
-function handleConfirm() {
-  showModal.value = false
+function handleClose() {
+  showAlert.value = false
   if (config.onlyShowOnce) {
     localStorage.setItem('aeracraft_announcement_shown', 'true')
   }
-}
-
-function handleCancel() {
-  showModal.value = false
 }
 
 function prevNotice() {
@@ -47,7 +43,7 @@ function showAnnouncement() {
     if (shown === 'true') return
   }
   currentIndex.value = 0
-  showModal.value = true
+  showAlert.value = true
 }
 
 onMounted(() => {
@@ -58,114 +54,100 @@ onMounted(() => {
 </script>
 
 <template>
-  <Transition name="fade">
-    <div v-if="showModal" class="announcement-overlay" @click.self="handleCancel">
-      <NCard :title="currentNotice?.title" bordered class="announcement-card">
-        <div class="announcement-content">
-          <NAlert :type="alertType" :show-icon="true">
-            <pre class="content-text">{{ currentNotice?.content }}</pre>
-          </NAlert>
+  <Transition name="slide">
+    <div v-if="showAlert" class="announcement-container">
+      <NAlert
+        :type="alertType"
+        :show-icon="true"
+        :closable="config.closable"
+        class="announcement-alert"
+        @close="handleClose"
+      >
+        <div class="alert-content">
+          <div class="alert-title">{{ currentNotice?.title }}</div>
+          <pre class="alert-text">{{ currentNotice?.content }}</pre>
         </div>
 
-        <div v-if="totalCount > 1" class="announcement-pagination">
-          <NSpace justify="center" align="center">
-            <NButton size="small" @click="prevNotice" :disabled="currentIndex === 0">
+        <div v-if="totalCount > 1" class="alert-pagination">
+          <NSpace justify="center" align="center" size="small">
+            <NButton text size="small" @click="prevNotice" :disabled="currentIndex === 0">
               上一条
             </NButton>
             <span class="pagination-info">
               {{ currentIndex + 1 }} / {{ totalCount }}
             </span>
-            <NButton size="small" @click="nextNotice" :disabled="currentIndex === totalCount - 1">
+            <NButton text size="small" @click="nextNotice" :disabled="currentIndex === totalCount - 1">
               下一条
             </NButton>
           </NSpace>
         </div>
 
-        <div class="announcement-actions">
-          <NButton
-            v-if="config.showCancelButton"
-            size="medium"
-            @click="handleCancel"
-          >
-            {{ config.cancelButtonText }}
-          </NButton>
-          <NButton
-            v-if="config.showConfirmButton"
-            type="primary"
-            size="medium"
-            @click="handleConfirm"
-          >
+        <div v-if="config.showConfirmButton" class="alert-action">
+          <NButton type="primary" size="small" @click="handleClose">
             {{ config.confirmButtonText }}
           </NButton>
         </div>
-      </NCard>
+      </NAlert>
     </div>
   </Transition>
 </template>
 
 <style scoped>
-.announcement-overlay {
+.announcement-container {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 9999;
-  padding: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, transparent 100%);
 }
-.announcement-card {
-  width: 100%;
-  max-width: 480px;
-  margin: 0;
+.announcement-alert {
+  max-width: 800px;
+  margin: 0 auto;
 }
-.announcement-card :deep(.n-card__content) {
-  padding: 20px !important;
+.announcement-alert :deep(.n-alert__content) {
+  padding: 12px 16px !important;
 }
-.announcement-card :deep(.n-card__header) {
-  padding: 16px 20px !important;
-  border-bottom: 2px solid var(--mc-border) !important;
+.alert-content {
+  flex: 1;
 }
-.announcement-card :deep(.n-card__header-title) {
-  font-size: 1.15rem !important;
-  font-weight: 600 !important;
-  color: var(--mc-grass) !important;
+.alert-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
-.announcement-content {
-  margin-bottom: 16px;
-}
-.content-text {
+.alert-text {
   margin: 0;
   white-space: pre-wrap;
   font-family: 'v-mono', 'PingFang SC', 'Microsoft YaHei', monospace;
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: var(--mc-text);
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
-.announcement-pagination {
-  padding: 12px 0;
-  border-top: 1px solid var(--mc-border);
-  border-bottom: 1px solid var(--mc-border);
-  margin-bottom: 16px;
+.alert-pagination {
+  padding: 8px 0 4px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 .pagination-info {
-  color: var(--mc-text-secondary);
-  font-size: 0.85rem;
+  color: inherit;
+  opacity: 0.8;
+  font-size: 0.8rem;
 }
-.announcement-actions {
+.alert-action {
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(0,0,0,0.1);
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s ease;
 }
-.fade-enter-from,
-.fade-leave-to {
+.slide-enter-from,
+.slide-leave-to {
   opacity: 0;
+  transform: translateY(-100%);
 }
 </style>
