@@ -32,8 +32,11 @@ import { site } from '../config/site.js'
 .rule-card {
   margin-bottom: 0;
 }
+.rule-card :deep(.n-card__content) {
+  padding: 24px !important;
+}
 .rule-card h3 {
-  margin: 0 0 16px;
+  margin: 0 0 20px;
   color: var(--mc-grass);
   font-size: 1.25rem;
 }

@@ -26,7 +26,14 @@ const router = useRouter()
           </NButton>
         </NSpace>
       </div>
-      <div class="hero-status">
+    </section>
+
+    <section class="servers-section">
+      <div class="section-title">
+        <h2>{{ site.home.serversTitle }}</h2>
+        <p>{{ site.home.serversSubtitle }}</p>
+      </div>
+      <div class="servers-grid">
         <ServerStatus server-key="lobby" />
         <ServerStatus server-key="survival" />
       </div>
@@ -37,9 +44,9 @@ const router = useRouter()
         <h2>{{ site.home.intro.title }}</h2>
         <p>{{ site.home.intro.subtitle }}</p>
       </div>
-      <NGrid cols="1 s:2 m:4" responsive="screen" x-gap="16" y-gap="16">
+      <NGrid cols="1 s:2 m:4" responsive="screen" x-gap="20" y-gap="20">
         <NGridItem v-for="mode in site.gameModes.modes.slice(0, 4)" :key="mode.key">
-          <NCard class="mode-card">
+          <NCard class="mode-card" hoverable>
             <div class="mode-icon">{{ mode.icon }}</div>
             <h3>{{ mode.name }}</h3>
             <p>{{ mode.description }}</p>
@@ -52,88 +59,86 @@ const router = useRouter()
 
 <style scoped>
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
-  gap: 40px;
-  align-items: start;
-  padding: 48px 0;
-}
-.hero-content {
-  min-width: 0;
+  padding: 60px 0;
+  text-align: center;
 }
 .hero-content h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin: 0 0 8px;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  margin: 0 0 12px;
   color: var(--mc-grass);
+  font-weight: 700;
 }
 .hero-content .slogan {
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
   color: var(--mc-gold);
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   font-weight: 600;
 }
 .hero-content .description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--mc-text-secondary);
-  line-height: 1.7;
-  margin-bottom: 24px;
-  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.hero-status {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  position: sticky;
-  top: 24px;
+.servers-section {
+  padding: 40px 0;
+}
+.servers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .intro {
-  padding: 48px 0;
+  padding: 60px 0;
 }
 .mode-card {
   text-align: center;
-  min-height: 220px;
+  min-height: 240px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mode-card:hover {
+  transform: translateY(-4px);
 }
 .mode-card :deep(.n-card__content) {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 24px !important;
 }
 .mode-icon {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
+  font-size: 3rem;
+  margin-bottom: 16px;
 }
 .mode-card h3 {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   color: var(--mc-grass);
+  font-size: 1.25rem;
 }
 .mode-card p {
   margin: 0;
   color: var(--mc-text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hero {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    padding: 40px 0;
   }
-  .hero-status {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  .hero-content h1 {
+    font-size: clamp(2rem, 6vw, 2.75rem);
   }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 24px 0;
-  }
+  .servers-section,
   .intro {
-    padding: 24px 0;
+    padding: 32px 0;
   }
-  .hero-status {
+  .servers-grid {
     grid-template-columns: 1fr;
   }
 }

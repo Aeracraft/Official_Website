@@ -52,6 +52,8 @@ export const site = {
   },
 
   home: {
+    serversTitle: '服务器状态',
+    serversSubtitle: '实时查看服务器运行状态',
     intro: {
       title: '核心玩法',
       subtitle: '多种玩法，满足不同冒险者的需求',
@@ -169,6 +171,8 @@ export const site = {
     motdLabel: 'MOTD',
     pingLabel: '延迟',
     refreshButton: '刷新状态',
+    copyButton: '复制',
+    copiedText: '已复制',
     errorPrefix: '状态获取失败',
   },
 

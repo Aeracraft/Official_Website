@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { NCard, NSpace, NTag, NButton, NSkeleton, NAlert } from 'naive-ui'
+import { NCard, NSpace, NTag, NButton, NSkeleton, NAlert, NMessage } from 'naive-ui'
 import { site } from '../config/site.js'
 
 const props = defineProps({
@@ -14,6 +14,7 @@ const server = site.servers[props.serverKey]
 const status = ref(null)
 const loading = ref(false)
 const error = ref(null)
+const copied = ref(false)
 
 const isOnline = computed(() => status.value?.status === 'online')
 const playerOnline = computed(() => Number(status.value?.players?.online || 0))
@@ -49,14 +50,42 @@ async function fetchStatus() {
   }
 }
 
+async function copyAddress() {
+  try {
+    await navigator.clipboard.writeText(server.javaAddress)
+    copied.value = true
+    NMessage.success(`${site.serverStatus.copiedText}：${server.javaAddress}`)
+    setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  } catch (e) {
+    NMessage.error('复制失败，请手动复制')
+  }
+}
+
 onMounted(fetchStatus)
 </script>
 
 <template>
   <NCard :title="server.name" class="status-card">
     <NSpace vertical>
-      <div>{{ site.serverStatus.javaLabel }}：<code>{{ server.javaAddress }}</code></div>
-      <div>{{ site.serverStatus.bedrockLabel }}：<code>{{ server.bedrockAddress }}</code> : {{ server.bedrockPort }}</div>
+      <div class="address-row">
+        <span class="label">{{ site.serverStatus.javaLabel }}：</span>
+        <code class="address">{{ server.javaAddress }}</code>
+        <NButton
+          size="tiny"
+          @click="copyAddress"
+          :type="copied ? 'success' : 'default'"
+          class="copy-btn"
+        >
+          {{ copied ? site.serverStatus.copiedText : site.serverStatus.copyButton }}
+        </NButton>
+      </div>
+
+      <div class="address-row">
+        <span class="label">{{ site.serverStatus.bedrockLabel }}：</span>
+        <code class="address">{{ server.bedrockAddress }}:{{ server.bedrockPort }}</code>
+      </div>
 
       <NSkeleton v-if="loading" text :repeat="3" />
 
@@ -70,10 +99,10 @@ onMounted(fetchStatus)
             {{ isOnline ? site.serverStatus.onlineText : site.serverStatus.offlineText }}
           </NTag>
           <span class="player-count">{{ site.serverStatus.playersLabel }} {{ playerOnline }} / {{ playerMax }}</span>
+          <span class="ping" :class="`ping-${pingColor}`">{{ site.serverStatus.pingLabel }} {{ serverPing }}ms</span>
         </div>
         <div v-if="serverVersion" class="meta">{{ site.serverStatus.versionLabel }}：{{ serverVersion }}</div>
         <div v-if="serverMotd" class="meta">{{ site.serverStatus.motdLabel }}：{{ serverMotd }}</div>
-        <div class="meta" :class="`ping-${pingColor}`">{{ site.serverStatus.pingLabel }}：<span>{{ serverPing }}ms</span></div>
       </div>
 
       <NButton size="small" @click="fetchStatus" :loading="loading">{{ site.serverStatus.refreshButton }}</NButton>
@@ -91,6 +120,23 @@ onMounted(fetchStatus)
   border-radius: 4px;
   font-family: 'v-mono', monospace;
 }
+.address-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.address-row .label {
+  flex-shrink: 0;
+  color: var(--mc-text-secondary);
+}
+.address-row .address {
+  flex: 1;
+  min-width: 160px;
+}
+.copy-btn {
+  flex-shrink: 0;
+}
 .status-info {
   display: flex;
   flex-direction: column;
@@ -99,28 +145,30 @@ onMounted(fetchStatus)
 .status-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .player-count {
   color: var(--mc-text);
 }
-.meta {
+.ping {
   font-size: 0.85rem;
+  font-weight: 600;
+}
+.ping-success {
+  color: #52c41a;
+}
+.ping-warning {
+  color: #faad14;
+}
+.ping-error {
+  color: #ff4d4f;
+}
+.ping-default {
   color: var(--mc-text-secondary);
 }
-.meta.ping-success span {
-  color: #52c41a;
-  font-weight: 600;
-}
-.meta.ping-warning span {
-  color: #faad14;
-  font-weight: 600;
-}
-.meta.ping-error span {
-  color: #ff4d4f;
-  font-weight: 600;
-}
-.meta.ping-default span {
+.meta {
+  font-size: 0.85rem;
   color: var(--mc-text-secondary);
 }
 </style>

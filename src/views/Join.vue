@@ -14,19 +14,19 @@ import { site } from '../config/site.js'
       <h3>{{ site.join.sections.serverInfo.title }}</h3>
       <div class="server-info">
         <div class="info-row">
-          <span>{{ site.join.sections.serverInfo.versionLabel }}：</span>
+          <span class="label">{{ site.join.sections.serverInfo.versionLabel }}：</span>
           <code>{{ site.versionRange }}</code>
         </div>
         <div class="info-row">
-          <span>{{ site.join.sections.serverInfo.lobbyJavaLabel }}：</span>
+          <span class="label">{{ site.join.sections.serverInfo.lobbyJavaLabel }}：</span>
           <code>{{ site.servers.lobby.javaAddress }}</code>
         </div>
         <div class="info-row">
-          <span>{{ site.join.sections.serverInfo.survivalJavaLabel }}：</span>
+          <span class="label">{{ site.join.sections.serverInfo.survivalJavaLabel }}：</span>
           <code>{{ site.servers.survival.javaAddress }}</code>
         </div>
         <div class="info-row">
-          <span>{{ site.join.sections.serverInfo.bedrockLabel }}：</span>
+          <span class="label">{{ site.join.sections.serverInfo.bedrockLabel }}：</span>
           <code>{{ site.servers.lobby.bedrockAddress }}:{{ site.servers.lobby.bedrockPort }}</code>
         </div>
       </div>
@@ -47,7 +47,7 @@ import { site } from '../config/site.js'
       <NDivider />
 
       <h3>{{ site.join.sections.links.title }}</h3>
-      <NSpace>
+      <NSpace wrap class="links-wrap">
         <NButton
           v-for="link in site.join.externalLinks"
           :key="link.url"
@@ -66,24 +66,40 @@ import { site } from '../config/site.js'
 .join-card {
   margin-bottom: 0;
 }
+.join-card :deep(.n-card__content) {
+  padding: 24px !important;
+}
 .join-card h3 {
   color: var(--mc-grass);
-  margin: 0 0 16px;
+  margin: 0 0 20px;
+  font-size: 1.25rem;
 }
 .server-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 .info-row {
   display: flex;
   gap: 8px;
   align-items: center;
+  flex-wrap: wrap;
+}
+.info-row .label {
+  flex-shrink: 0;
+  color: var(--mc-text-secondary);
 }
 .info-row code {
   background: #eef7ee;
-  padding: 2px 8px;
+  padding: 4px 10px;
   border-radius: 4px;
   font-family: 'v-mono', monospace;
+  flex: 1;
+  min-width: 180px;
+}
+.links-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 </style>
