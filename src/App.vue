@@ -68,6 +68,7 @@ function renderMenuLabel(option) {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 .site-header {
   background: var(--mc-cloud) !important;
@@ -102,6 +103,14 @@ function renderMenuLabel(option) {
 }
 .site-content {
   flex: 1;
+  padding: 0;
+}
+.site-content :deep(.n-layout-content) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .site-footer {
   background: var(--mc-cloud) !important;

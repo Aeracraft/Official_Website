@@ -116,45 +116,64 @@ onMounted(fetchStatus)
 .status-card {
   margin-bottom: 0;
 }
+.status-card :deep(.n-card__content) {
+  padding: 20px !important;
+}
+.status-card :deep(.n-card__header) {
+  padding: 16px 20px !important;
+  border-bottom: 2px solid var(--mc-border) !important;
+}
+.status-card :deep(.n-card__header-title) {
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: var(--mc-grass) !important;
+}
 .status-card code {
   background: #eef7ee;
-  padding: 2px 6px;
+  padding: 4px 10px;
   border-radius: 4px;
   font-family: 'v-mono', monospace;
+  font-size: 0.95rem;
 }
 .address-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
+  padding: 8px 0;
 }
 .address-row .label {
   flex-shrink: 0;
   color: var(--mc-text-secondary);
+  font-size: 0.95rem;
+  min-width: 70px;
 }
 .address-row .address {
   flex: 1;
-  min-width: 160px;
+  min-width: 140px;
 }
 .copy-btn {
   flex-shrink: 0;
+  margin-left: auto;
 }
 .status-info {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  padding: 8px 0;
 }
 .status-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 .player-count {
   color: var(--mc-text);
+  font-size: 0.95rem;
 }
 .ping {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 .ping-success {
@@ -170,7 +189,7 @@ onMounted(fetchStatus)
   color: var(--mc-text-secondary);
 }
 .meta {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--mc-text-secondary);
 }
 </style>
