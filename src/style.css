@@ -1,0 +1,158 @@
+:root {
+  --mc-grass: #5d8c39;
+  --mc-dirt: #866043;
+  --mc-stone: #7d7d7d;
+  --mc-sky: #a7d3f1;
+  --mc-cloud: #ffffff;
+  --mc-gold: #f4d142;
+  --mc-dark: #2c2c2c;
+  --mc-light-bg: #f4f9f4;
+  --mc-card-bg: #ffffff;
+  --mc-border: #c8e0c8;
+  --mc-border-strong: #5d8c39;
+  --mc-text: #333333;
+  --mc-text-secondary: #666666;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'v-mono', 'PingFang SC', 'Microsoft YaHei', monospace;
+  background-color: var(--mc-light-bg);
+  color: var(--mc-text);
+  line-height: 1.6;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.section-title h2 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: var(--mc-grass);
+}
+
+.section-title p {
+  margin: 0;
+  color: var(--mc-text-secondary);
+}
+
+/* 覆盖 Naive UI 卡片默认阴影 */
+.n-card {
+  box-shadow: none !important;
+  border: 2px solid var(--mc-border) !important;
+  background-color: var(--mc-card-bg) !important;
+  border-radius: 8px !important;
+}
+
+.n-card-header {
+  border-bottom: 2px solid var(--mc-border) !important;
+}
+
+.n-card-header__main {
+  color: var(--mc-grass) !important;
+  font-weight: 600 !important;
+}
+
+/* 覆盖 Naive UI 菜单默认样式 */
+.n-menu {
+  background: transparent !important;
+}
+
+.n-menu.n-menu--horizontal {
+  height: auto !important;
+}
+
+.n-menu.n-menu--horizontal .n-menu-item {
+  height: 44px !important;
+  line-height: 44px !important;
+  border-radius: 0 !important;
+}
+
+.n-menu.n-menu--horizontal .n-menu-item-content {
+  padding: 0 18px !important;
+  color: var(--mc-text) !important;
+  font-weight: 500 !important;
+}
+
+.n-menu.n-menu--horizontal .n-menu-item-content--selected {
+  color: var(--mc-grass) !important;
+  border-bottom: 3px solid var(--mc-grass) !important;
+}
+
+.n-menu.n-menu--horizontal .n-menu-item-content--selected .n-menu-item-content-header {
+  color: var(--mc-grass) !important;
+}
+
+.n-menu.n-menu--horizontal .n-menu-item-content:not(.n-menu-item-content--selected):hover {
+  color: var(--mc-grass) !important;
+}
+
+/* 按钮主色 */
+.n-button--primary-type {
+  background-color: var(--mc-grass) !important;
+  border-color: var(--mc-grass) !important;
+}
+
+.n-button--primary-type:hover {
+  background-color: #4a7030 !important;
+  border-color: #4a7030 !important;
+}
+
+/* 标签 */
+.n-tag--success-type {
+  background-color: #e8f5e9 !important;
+  border-color: var(--mc-grass) !important;
+  color: var(--mc-grass) !important;
+}
+
+.n-tag--warning-type {
+  background-color: #fff8e1 !important;
+  border-color: var(--mc-gold) !important;
+  color: #8a6d0b !important;
+}
+
+/* 步骤条 */
+.n-step-splitor {
+  background-color: var(--mc-border) !important;
+}
+
+.n-step-content-header__title {
+  color: var(--mc-grass) !important;
+  font-weight: 600 !important;
+}
+
+/* 列表 */
+.n-list-item {
+  border-bottom: 1px solid var(--mc-border) !important;
+}
+
+.n-list-item:last-child {
+  border-bottom: none !important;
+}
+
+/* 分隔线 */
+.n-divider {
+  border-color: var(--mc-border) !important;
+}
