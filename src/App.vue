@@ -3,6 +3,7 @@ import { h } from 'vue'
 import { RouterLink, RouterView, useRoute } from 'vue-router'
 import { NLayout, NLayoutHeader, NLayoutContent, NLayoutFooter, NMenu, NSpace, NButton, NMessageProvider } from 'naive-ui'
 import { site } from './config/site.js'
+import NoticeModal from './components/NoticeModal.vue'
 
 const route = useRoute()
 
@@ -19,6 +20,7 @@ function renderMenuLabel(option) {
 
 <template>
   <NMessageProvider>
+    <NoticeModal />
     <NLayout class="site-layout">
       <NLayoutHeader bordered class="site-header">
       <div class="header-inner">
