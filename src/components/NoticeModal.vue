@@ -50,8 +50,8 @@ onMounted(() => {
         class="notice-alert"
         @close="handleClose(notice.id)"
       >
-        <span class="alert-title">{{ notice.title }}</span>
-        <span class="alert-text">{{ notice.content }}</span>
+        <div class="alert-title">{{ notice.title }}</div>
+        <div class="alert-text">{{ notice.content }}</div>
       </NAlert>
     </TransitionGroup>
   </div>
@@ -87,11 +87,14 @@ onMounted(() => {
 .alert-title {
   font-size: 0.9rem;
   font-weight: 600;
-  margin-right: 8px;
+  margin-bottom: 4px;
 }
 .alert-text {
   font-size: 0.85rem;
   opacity: 0.9;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
 }
 .slide-enter-active,
 .slide-leave-active {
