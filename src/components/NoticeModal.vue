@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { NButton, NAlert } from 'naive-ui'
+import { NAlert } from 'naive-ui'
 import { site } from '../config/site.js'
 
 const config = site.announcement
@@ -38,78 +38,62 @@ onMounted(() => {
 </script>
 
 <template>
-  <Transition name="slide">
-    <div v-if="showAlert" class="announcement-container">
-      <div class="announcement-list">
-        <NAlert
-          v-for="(notice, index) in notices"
-          :key="index"
-          :type="getAlertType(notice.type)"
-          :show-icon="true"
-          :closable="config.closable"
-          class="announcement-alert"
-          @close="handleClose"
-        >
-          <div class="alert-content">
-            <div class="alert-title">{{ notice.title }}</div>
-            <pre class="alert-text">{{ notice.content }}</pre>
-          </div>
-        </NAlert>
-      </div>
-
-      <div v-if="config.showConfirmButton" class="announcement-action">
-        <NButton type="primary" size="small" @click="handleClose">
-          {{ config.confirmButtonText }}
-        </NButton>
-      </div>
+  <Transition name="fade">
+    <div v-if="showAlert" class="announcement-section">
+      <NAlert
+        v-for="(notice, index) in notices"
+        :key="index"
+        :type="getAlertType(notice.type)"
+        :show-icon="true"
+        :closable="config.closable"
+        :bordered="false"
+        class="notice-alert"
+        @close="handleClose"
+      >
+        <span class="alert-title">{{ notice.title }}</span>
+        <span class="alert-text">{{ notice.content }}</span>
+      </NAlert>
     </div>
   </Transition>
 </template>
 
 <style scoped>
-.announcement-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
+.announcement-section {
   padding: 8px 16px;
-}
-.announcement-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
-.announcement-alert :deep(.n-alert__content) {
-  padding: 12px 16px !important;
+.notice-alert :deep(.n-alert) {
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  margin: 0 !important;
 }
-.alert-content {
-  flex: 1;
+.notice-alert :deep(.n-alert__content) {
+  padding: 0 !important;
+}
+.notice-alert :deep(.n-alert__icon) {
+  font-size: 14px !important;
+  margin-right: 8px !important;
 }
 .alert-title {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-right: 8px;
 }
 .alert-text {
-  margin: 0;
-  white-space: pre-wrap;
-  font-family: 'v-mono', 'PingFang SC', 'Microsoft YaHei', monospace;
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.announcement-action {
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 8px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
 }
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-enter-from,
-.slide-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
-  transform: translateY(-100%);
 }
 </style>

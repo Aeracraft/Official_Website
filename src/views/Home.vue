@@ -3,12 +3,14 @@ import { NButton, NSpace, NCard, NGrid, NGridItem } from 'naive-ui'
 import { useRouter } from 'vue-router'
 import { site } from '../config/site.js'
 import ServerStatus from '../components/ServerStatus.vue'
+import NoticeModal from '../components/NoticeModal.vue'
 
 const router = useRouter()
 </script>
 
 <template>
   <div class="page">
+    <NoticeModal />
     <section class="hero">
       <div class="hero-content">
         <h1>{{ site.hero.title }}</h1>

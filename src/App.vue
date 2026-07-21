@@ -20,7 +20,6 @@ function renderMenuLabel(option) {
 
 <template>
   <NMessageProvider>
-    <NoticeModal />
     <NLayout class="site-layout">
       <NLayoutHeader bordered class="site-header">
       <div class="header-inner">
